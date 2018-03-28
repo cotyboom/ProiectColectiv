@@ -9,13 +9,14 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "doctor")
+@Table(name = "asistent")
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
-public class Doctor extends Human {
+
+public class Asistent extends Human {
     @Column
     private Rol rol;
 
@@ -25,19 +26,18 @@ public class Doctor extends Human {
     @Column
     private String password;
 
-    @Column
-    private String specializare;
+    @OneToMany(targetEntity = Programare.class, cascade = CascadeType.ALL)
+    private List<Programare> listProgramare;
 
-    @OneToMany(targetEntity = Pacient.class, cascade = CascadeType.ALL)
-    private List<Pacient> listPacient;
-
-    public Doctor(String nume, String prenume, String CNP, String telefon, String adresa, String email, Rol rol, String username, String password, String specializare, List<Pacient> listPacient) {
+    public Asistent(String nume, String prenume, String CNP, String telefon, String adresa, String email, Rol rol, String username, String password, List<Programare> listProgramare) {
         super(nume, prenume, CNP, telefon, adresa, email);
         this.rol = rol;
         this.username = username;
         this.password = password;
-        this.specializare = specializare;
-        this.listPacient = listPacient;
+        this.listProgramare = listProgramare;
     }
 }
+
+
+
 
