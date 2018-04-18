@@ -23,15 +23,15 @@ public class Programare {
     private String ora;
 
     @Column
-    private String data;
+    private String date;
 
     @Column
     private String cabinet;
 
-    public Programare(String ora, String data, String cabinet)
+    public Programare(String ora, String date, String cabinet)
     {
         this.ora = ora;
-        this.data=data;
+        this.date=date;
         this.cabinet=cabinet;
     }
 }
