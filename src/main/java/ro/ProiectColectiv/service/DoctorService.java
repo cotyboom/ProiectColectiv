@@ -21,4 +21,23 @@ public class DoctorService {
 
         return listOfAllDoctori;
     }
+
+    public void createDoctor(Doctor doctor)
+    {
+        doctorRepository.save(doctor);
+    }
+
+    public Doctor findById(Long id)
+    {
+        Doctor doctor = doctorRepository.findById(id);
+
+        return doctor;
+    }
+
+    public Doctor findByUsername(String username)
+    {
+        Doctor doctor = doctorRepository.findByUsername(username);
+
+        return doctor;
+    }
 }

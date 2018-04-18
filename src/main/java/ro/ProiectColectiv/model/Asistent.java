@@ -31,7 +31,7 @@ public class Asistent extends Human {
 
     public Asistent(String nume, String prenume, String CNP, String telefon, String adresa, String email, Rol rol, String username, String password, List<Programare> listProgramare) {
         super(nume, prenume, CNP, telefon, adresa, email);
-        this.rol = rol;
+        this.rol = Rol.ASISTENT;
         this.username = username;
         this.password = password;
         this.listProgramare = listProgramare;

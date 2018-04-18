@@ -7,7 +7,6 @@ import ro.ProiectColectiv.enumerable.Rol;
 
 public interface AsistentRepository extends JpaRepository<Asistent, Long>
 {
-    Asistent findByRol(Rol rol);
+    Asistent findById(Long id);
     Asistent findByUsername(String username);
-    Asistent findByPassword(String password);
 }

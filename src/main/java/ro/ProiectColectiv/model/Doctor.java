@@ -33,7 +33,7 @@ public class Doctor extends Human {
 
     public Doctor(String nume, String prenume, String CNP, String telefon, String adresa, String email, Rol rol, String username, String password, String specializare, List<Pacient> listPacient) {
         super(nume, prenume, CNP, telefon, adresa, email);
-        this.rol = rol;
+        this.rol = Rol.DOCTOR;
         this.username = username;
         this.password = password;
         this.specializare = specializare;

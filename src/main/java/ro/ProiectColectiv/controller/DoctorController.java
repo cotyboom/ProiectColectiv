@@ -3,12 +3,11 @@ package ro.ProiectColectiv.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ro.ProiectColectiv.model.Doctor;
 import ro.ProiectColectiv.service.DoctorService;
 
+import javax.print.Doc;
 import java.util.List;
 
 @RestController
@@ -29,5 +28,27 @@ public class DoctorController {
         List<Doctor> doctorList = doctorService.getAllDoctori();
 
         return doctorList;
+    }
+
+    @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET)
+    public Doctor getById(@PathVariable Long id)
+    {
+        Doctor doctor = doctorService.findById(id);
+
+        return doctor;
+    }
+
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public void createDoctor(@RequestBody Doctor doctor)
+    {
+        doctorService.createDoctor(doctor);
+    }
+
+    @RequestMapping(value = "/getByUsername/{username}", method = RequestMethod.GET)
+    public Doctor getByUsername(@PathVariable String username)
+    {
+        Doctor doctor = doctorService.findByUsername(username);
+
+        return doctor;
     }
 }

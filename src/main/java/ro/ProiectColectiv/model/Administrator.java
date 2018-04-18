@@ -28,7 +28,7 @@ public class Administrator extends Human {
 
     public Administrator(String nume, String prenume, String CNP, String telefon, String adresa, String email, Rol rol, String username, String password) {
         super(nume, prenume, CNP, telefon, adresa, email);
-        this.rol = rol;
+        this.rol = Rol.ADMINISTRATOR;
         this.username = username;
         this.password = password;
     }

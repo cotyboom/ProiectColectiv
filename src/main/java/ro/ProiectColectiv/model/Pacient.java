@@ -40,7 +40,7 @@ public class Pacient extends Human {
 
     public Pacient(String nume, String prenume, String CNP, String telefon, String adresa, String email, Rol rol,Integer greutate, Integer inaltime, String username, String password, List<FisaMedicala> listFisa, List<Programare> listProgramare) {
         super(nume, prenume, CNP, telefon, adresa, email);
-        this.rol = rol;
+        this.rol = Rol.PACIENT;
         this.inaltime = inaltime;
         this.greutate = greutate;
         this.username = username;

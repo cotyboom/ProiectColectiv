@@ -7,9 +7,8 @@ import ro.ProiectColectiv.enumerable.Rol;
 import java.text.DecimalFormat;
 
 
-public interface AdministratorRepository extends JpaRepository<Administrator, Long> {
-
-    Administrator findByRol(Rol rol);
+public interface AdministratorRepository extends JpaRepository<Administrator, Long>
+{
+    Administrator findById(Long id);
     Administrator findByUsername(String username);
-    Administrator findByPassword(String password);
 }

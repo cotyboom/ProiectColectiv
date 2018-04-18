@@ -3,10 +3,11 @@ package ro.ProiectColectiv.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import ro.ProiectColectiv.model.FisaMedicala;
 
+import java.util.List;
+
 public interface FisaMedicalaRepository extends JpaRepository<FisaMedicala, Long> {
 
     FisaMedicala findById(Long id);
-    FisaMedicala findByTratament(String tratament);
-    FisaMedicala findByDiagnostic(String diagnostic);
-    FisaMedicala findByObservatii(String observatii);
+    List<FisaMedicala> findByTratament(String tratament);
+    List<FisaMedicala> findByDiagnostic(String diagnostic);
 }
