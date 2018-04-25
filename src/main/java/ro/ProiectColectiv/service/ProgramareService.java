@@ -17,10 +17,14 @@ public class ProgramareService
               this.programareRepository = programareRepository;
           }
 
-          public List<Programare> getAllProgramari()
-            {
-                List<Programare> listofAllProgramari = programareRepository.findAll();
+    public List<Programare> getAllProgramari()
+    {
+        List<Programare> listofAllProgramari = programareRepository.findAll();
 
-                return listofAllProgramari;
-            }
+        return listofAllProgramari;
+    }
+
+    public void createProgramare(Programare programare) {programareRepository.save(programare);}
+
+    public Programare getById(Long id) { return programareRepository.findById(id);}
 }

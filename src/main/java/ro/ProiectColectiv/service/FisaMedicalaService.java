@@ -22,4 +22,8 @@ public class FisaMedicalaService {
 
         return listOfAllFiseMedicale;
     }
+
+    public void createFisaMedicala(FisaMedicala fisaMedicala) {fisaMedicalaRepository.save(fisaMedicala);}
+
+    public FisaMedicala getById(Long id) {return fisaMedicalaRepository.findById(id);}
 }

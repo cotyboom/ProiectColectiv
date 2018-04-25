@@ -2,9 +2,7 @@ package ro.ProiectColectiv.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ro.ProiectColectiv.model.FisaMedicala;
 import ro.ProiectColectiv.service.FisaMedicalaService;
 
@@ -28,5 +26,20 @@ public class FisaMedicalaController {
         List<FisaMedicala> fisaMedicalaList = fisaMedicalaService.getAllFiseMedicale();
 
         return fisaMedicalaList;
+    }
+
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public void create(@RequestBody FisaMedicala fisaMedicala)
+    {
+        fisaMedicalaService.createFisaMedicala(fisaMedicala);
+    }
+
+    @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET)
+
+    public FisaMedicala getById(@PathVariable Long id)
+    {
+        FisaMedicala fisaMedicala = fisaMedicalaService.getById(id);
+
+        return fisaMedicala;
     }
 }

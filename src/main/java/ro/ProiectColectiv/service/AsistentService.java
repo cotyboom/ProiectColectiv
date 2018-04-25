@@ -21,4 +21,8 @@ public class AsistentService {
 
         return listOfAllAsistenti;
     }
+
+    public void createAsistent(Asistent asistent){asistentRepository.save(asistent);}
+
+    public Asistent getById(Long id){return asistentRepository.findById(id);}
 }

@@ -1,9 +1,7 @@
 package ro.ProiectColectiv.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ro.ProiectColectiv.model.Pacient;
 import ro.ProiectColectiv.service.PacientService;
 import java.util.List;
@@ -26,5 +24,17 @@ public class PacientController {
         List<Pacient> pacientList = pacientService.getAllPacienti();
 
         return pacientList;
+    }
+
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public void create(@RequestBody Pacient pacient) {pacientService.createPacient(pacient);}
+
+    @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET)
+
+    public Pacient getById(@PathVariable Long id)
+    {
+        Pacient pacient = pacientService.getById(id);
+
+        return pacient;
     }
 }
