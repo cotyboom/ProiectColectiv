@@ -194,7 +194,15 @@
             x.style.display ="block";
         }
 
-
+        $.ajax ({
+            type: "GET",
+            url: "localhost:8080/doctor/",
+            dataType: "json",
+            succes: function(response){
+                var doctorList = $('#doctor')
+                for(var i=0; i<response)
+            }
+        });
 
     </script>
 

@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
+    <title>Asistent</title>
     <link rel="stylesheet" type="text/css" href="personalizedStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="container">
-<fieldset style="background-color: white; border: none; height: 1100px">
+<fieldset style="background-color: white;border: none; height: 1100px">
     <img src="logo.png" alt="Logo" width="130" height="90" style="display:inline">
     <h6 class="h5" >
         <img src="telefon.png" alt="Logo" width="15" height="15" style="display:inline;margin-left: 20px"> (0264) 315178<br>
@@ -17,21 +17,19 @@
     </h6>
 
 
-    <ul class="main-navigation" >
-        <li><a href="#"  onclick="hideAll(); show('paragraf')"><b>Acasa</b></a></li>
-        <li><a href="#"><b>Doctori</b></a>
+
+    <ul class="main-navigation"  >
+        <li><a href="#"><b>Acasa</b></a></li>
+        <li><a href="#" onclick="hideAll(); show('vizPacienti'); tabel('tabelPacienti');"><b>Programari</b></a>
+        </li>
+        <li><a href="#"><b>Pacienti</b></a>
             <ul>
-                <li><a href="#" onclick="hideAll(); show('totiDoctorii'); tabel('tabelTotiDoctorii');"><b>Vizualizare</b></a></li>
+                <li ><a href="#"onclick="hideAll(); show('totiPacientii'); tabel('tabelTotiPacientii');"><b>Vizualizare</b></a></li>
                 <li><a href="#" onclick="hideAll(); show('crearePacient');"><b>Adaugare</b></a></li>
+
             </ul>
         </li>
-        <li><a href="#"><b>Vizualizare</b></a>
-            <ul>
-                <li><a href="#" onclick="hideAll(); show('vizProg');"><b>Programari doctor</b></a></li>
-                <li><a href="#"><b>Istoric pacient</b></a></li>
-            </ul>
-        </li>
-         <li style="float: right"><a href="#"><b>Logout</b></a></li>
+        <li style="float: right"><a href="#"><b>Logout</b></a></li>
     </ul>
 
     <div style="margin-top: 50px">
@@ -144,34 +142,8 @@
                     <td>Breaz Bobo</td>
                     <td><img src="edit.png" class="button_img" alt="Logo" width="25" height="25" onclick="tabel('tabelProg')"></td>
                 </tr>
-                <td>Mike Tyson</td>
-                <td><img src="edit.png" class="button_img" alt="Logo" width="25" height="25" onclick="tabel('tabelProg')"></td>
-                </tr>
-            </table>
-        </fieldset>
-
-
-        <fieldset class="groupBox" id="totiDoctorii" style="display: none; border: none;">
-            <h3>Vizualizare doctori</h3><br>
-            <table id="tabelTotiDoctorii" style="display: none;">
-                <tr>
-                    <th>Doctori</th>
-                    <th>Vizualizare</th>
-                    <th>Stergere</th>
-                </tr>
-                <tr>
-                    <td>Gutt Robert</td>
-                    <td><img src="lupa.png" class="button_img" alt="Logo" width="25" height="25" ></td>
-                    <td><img src="delete.png" class="button_img" alt="Logo" width="25" height="25" onclick="alert('Doctor sters!')"></td>
-                </tr>
-                <tr>
-                    <td>Breaz Bobo</td>
-                    <td><img src="lupa.png" class="button_img" alt="Logo" width="25" height="25"></td>
-                    <td><img src="delete.png" class="button_img" alt="Logo" width="25" height="25" onclick="alert('Pacient salvat!')"></td>
-                </tr>
-                <td>Mike Tyson</td>
-                <td><img src="lupa.png" class="button_img" alt="Logo" width="25" height="25"></td>
-                <td><img src="delete.png" class="button_img" alt="Logo" width="25" height="25" onclick="alert('Pacient salvat!')"></td>
+                    <td>Mike Tyson</td>
+                    <td><img src="edit.png" class="button_img" alt="Logo" width="25" height="25" onclick="tabel('tabelProg')"></td>
                 </tr>
             </table>
         </fieldset>
@@ -270,7 +242,7 @@
         </fieldset>
 
         <fieldset class="groupBox" id="crearePacient" style="border-style: groove; display: none">
-            <h3>Adaugare doctor</h3><br>
+            <h3>Adaugare pacient</h3><br>
             <form id = "crearePacientt">
                 <label>
                     <span>Nume:</span>
@@ -314,24 +286,6 @@
                 </label><br><br><br>
             </form>
             <button class="cupid-green" type="button" onclick="alert('Pacient salvat!'); ">Salveaza</button>
-        </fieldset>
-
-
-        <fieldset class="groupBox" id="vizProg" style="display: none; border: none;">
-            <p style="display: inline;"> Doctor </p>
-            <select name="doctori" style="display: inline; margin-left: 20px;" onchange="show('vizFisaMedicala')">
-                <option value=""> </option>
-                <option>Kolumban Andrei</option>
-                <option>Hadar Alexandru</option>
-                <option>Nelson Mondialu</option>
-            </select>
-
-            <p style="display: inline;"> Interval </p>
-            <input type="date">
-            <input type="date">
-            <button class="cupid-green" type="button" onclick="alert('Pacient salvat!'); ">Generare</button>
-        </fieldset>
-
         </fieldset>
 
         <script>
