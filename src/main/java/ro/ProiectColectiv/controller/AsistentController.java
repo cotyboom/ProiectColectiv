@@ -1,8 +1,6 @@
 package ro.ProiectColectiv.controller;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ro.ProiectColectiv.model.Asistent;
 import ro.ProiectColectiv.service.AsistentService;
 
@@ -26,5 +24,16 @@ public class AsistentController {
         List<Asistent> asistentList = asistentService.getAllAsistenti();
 
         return asistentList;
+    }
+
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public void create(@RequestBody Asistent asistent) {asistentService.createAsistent(asistent);}
+
+    @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET)
+    public Asistent getById(@PathVariable Long id)
+    {
+        Asistent asistent = asistentService.getById(id);
+
+        return asistent;
     }
 }

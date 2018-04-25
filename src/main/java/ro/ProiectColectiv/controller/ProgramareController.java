@@ -1,9 +1,7 @@
 package ro.ProiectColectiv.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ro.ProiectColectiv.model.Programare;
 import ro.ProiectColectiv.service.ProgramareService;
 import java.util.List;
@@ -24,5 +22,17 @@ public class ProgramareController {
         List < Programare > programareList = programareService.getAllProgramari();
 
         return programareList;
+    }
+
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public void create(@RequestBody Programare programare){programareService.createProgramare(programare);}
+
+    @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET)
+
+    public Programare getById(@PathVariable Long id)
+    {
+        Programare programare = programareService.getById(id);
+
+        return programare;
     }
 }

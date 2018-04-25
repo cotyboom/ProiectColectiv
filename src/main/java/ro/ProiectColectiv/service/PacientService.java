@@ -18,10 +18,14 @@ public class PacientService
                 this.pacientRepository = pacientRepository;
             }
 
-            public List<Pacient> getAllPacienti()
-            {
-                List<Pacient> listOfAllPacienti = pacientRepository.findAll();
+    public List<Pacient> getAllPacienti()
+    {
+        List<Pacient> listOfAllPacienti = pacientRepository.findAll();
 
-                return listOfAllPacienti;
-            }
+        return listOfAllPacienti;
+    }
+
+    public void createPacient(Pacient pacient) {pacientRepository.save(pacient);}
+
+    public Pacient getById(Long id) {return pacientRepository.findById(id);}
 }

@@ -21,4 +21,8 @@ public class AdministratorService {
 
         return listOfAllAdministratori;
     }
+
+    public void createAdministrator(Administrator administrator) {administratorRepository.save(administrator);}
+
+    public Administrator getById(Long id) {return administratorRepository.findById(id);}
 }
