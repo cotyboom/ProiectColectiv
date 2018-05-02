@@ -32,7 +32,7 @@ public class ViewConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry resourceHandlerRegistry)
     {
-        resourceHandlerRegistry.addResourceHandler("/resources/FrontEnd/**").addResourceLocations("classpath:/resources/FrontEnd/");
+        resourceHandlerRegistry.addResourceHandler("/FrontEnd/**").addResourceLocations("classpath:/FrontEnd/");
     }
 
 }
