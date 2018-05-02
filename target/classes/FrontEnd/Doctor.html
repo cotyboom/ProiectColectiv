@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Doctor</title>
-    <link rel="stylesheet" type="text/css" href="personalizedStyle.css">
+    <link rel="stylesheet" type="text/css" href="/FrontEnd/personalizedStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="container">
 <fieldset style="background-color: white; border: none; height: 1100px">
-    <img src="logo.png" alt="Logo" width="130" height="90" style="display:inline">
+    <img src="/FrontEnd/logo.png" alt="Logo" width="130" height="90" style="display:inline">
     <h6 class="h5" >
-        <img src="telefon.png" alt="Logo" width="15" height="15" style="display:inline;margin-left: 20px"> (0264) 315178<br>
+        <img src="/FrontEnd/telefon.png" alt="Logo" width="15" height="15" style="display:inline;margin-left: 20px"> (0264) 315178<br>
     </h6>
     <h6 class="iconmail" >
-        <img src="mail.png" alt="Logo" width="15" height="15" style="display:inline;margin-right: 5px">clinica5D@gmail.com
+        <img src="/FrontEnd/mail.png" alt="Logo" width="15" height="15" style="display:inline;margin-right: 5px">clinica5D@gmail.com
     </h6>
 
 
@@ -46,11 +46,11 @@
                     </tr>
                     <tr>
                         <td>21.09.2018</td>
-                        <td><img src="lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
+                        <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
                     </tr>
                     <tr>
                         <td>20.05.2018</td>
-                        <td><img src="lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
+                        <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
                     </tr>
                 </table>
 
@@ -90,11 +90,11 @@
                 </tr>
                 <tr>
                     <td>21.09.2018</td>
-                    <td><img src="lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
+                    <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
                 </tr>
                 <tr>
                     <td>20.05.2018</td>
-                    <td><img src="lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
+                    <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
                 </tr>
             </table>
 
@@ -194,16 +194,16 @@
             x.style.display ="block";
         }
 
-        $.ajax ({
-            type: "GET",
-            url: "localhost:8080/doctor/",
-            dataType: "json",
-            succes: function(response){
-                var doctorList = $('#doctor')
-                for(var i=0; i<response;i++)
-
-            }
-        });
+        // $.ajax ({
+        //     type: "GET",
+        //     url: "localhost:8080/doctor/",
+        //     dataType: "json",
+        //     succes: function(response){
+        //         var doctorList = $('#doctor')
+        //         for(var i=0; i<response;i++)
+        //
+        //     }
+        // });
 
     </script>
 
