@@ -24,7 +24,7 @@ public class ViewConfig extends WebMvcConfigurerAdapter {
     {
         registry.addViewController( "/doctor").setViewName("Doctor");
         registry.addViewController("/pacient").setViewName("Pacient");
-        registry.addViewController("/administrator").setViewName("Administrator");
+        registry.addViewController("/administrator").setViewName("Admin");
         registry.addViewController("/asistent").setViewName("Asistent");
         //registry.addViewController( "/doctor").setViewName("Doctor");
         //registry.addViewController(urlPath: "/").setViewName("index");
