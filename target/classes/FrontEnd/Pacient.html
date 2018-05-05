@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/FrontEnd/personalizedStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body class="container">
+<div class="container">
 <fieldset style="background-color: white;border: none; height: 1100px">
     <img src="/FrontEnd/logo.png" alt="Logo" width="130" height="90" style="display:inline">
     <h6 class="h5" >
@@ -17,11 +17,9 @@
     </h6>
 
 
-
-    <ul class="main-navigation"  >
-        <li><a href="#"><b>Acasa</b></a></li>
-        <li><a href="#" onclick="hideAll(); show('addProgramare'); show('adaugareProgramare')"><b>Programari</b></a>
-        </li>
+    <ul class="main-navigation" >
+        <li><a href="#" onclick="hideAll(); show('paragraf')"><b>Acasa</b></a></li>
+        <li><a href="#" onclick="hideAll(); show('addProgramare');"><b>Programari</b></a></li>
         <li><a href="#"><b>Vizualizare</b></a>
             <ul>
                 <li><a href="#" onclick="hideAll(); show('vizFisaMedicala'); tabel('tabelFisaMedicala')"><b>Fisa medicala</b></a></li>
@@ -29,59 +27,33 @@
             </ul>
         </li>
         </li>
-        <li style="float: right"><a href="#"><b>Logout</b></a></li>
+        <li style="float: right"><a href="/login"><b>Logout</b></a></li>
     </ul>
 
-    <fieldset class="groupBox", id="addProgramare" style="display: none; border: none;">
-        <h3>Efectuare programare</h3><br>
-        <form id="adaugareProgramare">
-            <label>
-                <span>Data:</span>
-                <input type="date" name="data">
-            </label>
-            <label>
-                <span>Ora:</span>
-                <input type="time" name="ora">
-            </label>
-            <br><br>
-        </form>
-        <button class="cupid-green" type="button" onclick="alert('Programare efectuata cu succes!'); hideElem('addProgramare'); show('Programari'); tabel('tabelProgramari')">Salveaza</button>
-    </fieldset>
+    <div style="margin-top: 50px">
+        <fieldset class="groupBox" id="addProgramare" style="display: none; border: none;">
+            <h3>Efectuare programare</h3><br>
+            <form id="adaugareProgramare">
+                <label>
+                    <span>Data:</span>
+                    <input type="date" name="data">
+                </label>
+                <label>
+                    <span>Ora:</span>
+                    <input type="time" name="ora">
+                </label>
+                <br><br>
+            </form>
+            <button class="cupid-green" type="button" onclick="alert('Programare efectuata cu succes!'); hideElem('addProgramare'); show('Programari'); tabel('tabelProgramari')">Salveaza</button>
+        </fieldset>
 
-    <fieldset class="groupBox" id="Programari" style="display: none; border: none;">
-        <h3>Vizualizare programari</h3><br>
-        <table id="tabelProgramari" style="display: none;">
-            <tr>
-                <th>Data</th>
-                <th>Ora</th>
-                <th>Stergere</th>
-            </tr>
-            <tr>
-                <td>20/12/2088</td>
-                <td>12:55</td>
-                <td><img src="/FrontEnd/delete.png" class="button_img" alt="Logo" width="25" height="25" onclick="alert('Programare stearsa!')"></td>
-            </tr>
-        </table>
-    </fieldset>
+        <fieldset class="groupBox" id="paragraf">
+            <p3> Pacient: Nume si prenume pacient</p3>
+        </fieldset>
 
-    <fieldset class="groupBox" id="vizFisaMedicala" style="display: none; border: none;">
-        <h3>Vizualizare fise medicale</h3><br>
-        <table id="tabelFisaMedicala" style="display: none;">
-            <tr>
-                <th>Data</th>
-                <th>Vizualizare</th>
-            </tr>
-            <tr>
-                <td>20/12/2088</td>
-                <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="25" height="25" onclick="show('creareFisa')"></td>
-            </tr>
-        </table>
-    </fieldset>
-
-
-        <fieldset class="groupBox" id="vizReteta" style="display: none; border: none;">
-            <h3>Vizualizare retete</h3><br>
-            <table id="tabelReteta" style="display: none;">
+        <fieldset class="groupBox" id="vizFisaMedicala" style="display: none; border: none;">
+            <h3>Vizualizare fise medicale</h3><br>
+            <table id="tabelFisaMedicala" style="display: none;">
                 <tr>
                     <th>Data</th>
                     <th>Vizualizare</th>
@@ -93,21 +65,20 @@
             </table>
         </fieldset>
 
+        <fieldset class="groupBox" id="vizReteta" style="display: none; border: none;">
+                <h3>Vizualizare retete</h3><br>
+                <table id="tabelReteta" style="display: none;">
+                    <tr>
+                        <th>Data</th>
+                        <th>Vizualizare</th>
+                    </tr>
+                    <tr>
+                        <td>20/12/2088</td>
+                        <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="25" height="25" onclick="show('creareFisa')"></td>
+                    </tr>
+                </table>
+            </fieldset>
 
-        <fieldset class="groupBox" id="creareFisa" style="border-style: groove; display: none" >
-            <form>
-                - Nume medic:
-                <input type="text" name="numeM"><br><br>
-                - Prenume medic:
-                <input type="text" name="prenumeM"><br><br>
-                - Data intocmirii fisei medicale:
-                <input type="date" name="data"><br><br>
-                - Nume pacient:
-                <input type="text" name="numeP"><br><br>
-                - Prenume pacient:
-                <input type="text" name="prenumeP"><br><br>
-            </form>
-        </fieldset>
 
         <script>
             function tabel(id_element) {
@@ -170,8 +141,7 @@
             }
 
         </script>
-
     </div>
 </fieldset>
-</body>
+</div>
 </html>

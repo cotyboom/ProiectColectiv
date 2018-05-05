@@ -28,128 +28,13 @@
         <li><a href="#"><b>Vizualizare</b></a>
             <ul>
                 <li><a href="#" onclick="hideAll(); show('vizProg');"><b>Programari doctor</b></a></li>
-                <li><a href="#"><b>Istoric pacient</b></a></li>
+                <li><a href="#" onclick="hideAll(); show('vizIstoricPacient'); tabel('tabelIstoricPacient')"><b>Istoric pacient</b></a></li>
             </ul>
         </li>
-         <li style="float: right"><a href="#"><b>Logout</b></a></li>
+         <li style="float: right"><a href="/login"><b>Logout</b></a></li>
     </ul>
 
     <div style="margin-top: 50px">
-        <fieldset class="groupBox" id="Programari" style="border: none">
-            <div>
-                <table id="tabelViz" style="display: none;">
-                    <tr>
-                        <th>Data</th>
-                        <th>Vizualizare programare</th>
-                    </tr>
-                    <tr>
-                        <td>21.09.2018</td>
-                        <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="25" height="25" onclick="tabel('tabelProg')"></td>
-                    </tr>
-                    <tr>
-                        <td>20.05.2018</td>
-                        <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="25" height="25" onclick="tabel('tabelProg2')"></td>
-                    </tr>
-                </table>
-
-                <table id="tabelProg" style="display:none;" >
-                    <tr>
-                        <th>Ora</th>
-                        <th>Pacient</th>
-                        <th>Consultatie</th>
-                    </tr>
-                    <tr>
-                        <td>14:05</td>
-                        <td>Kolumban Andrei</td>
-                        <td>asdasd</td>
-                    </tr>
-                    <tr>
-                        <td>05:00</td>
-                        <td>Hadar Alexandru</td>
-                        <td>asdasdd</td>
-                    </tr>
-                </table>
-
-                <table id="tabelProg2" style="display:none;" >
-                    <tr>
-                        <th>Ora</th>
-                        <th>Pacient</th>
-                        <th>Consultatie</th>
-                    </tr>
-                    <tr>
-                        <td>14:50</td>
-                        <td>Mike Tyson</td>
-                        <td>lul</td>
-                    </tr>
-                    <tr>
-                        <td>05:20</td>
-                        <td>Salem</td>
-                        <td>asdasdd</td>
-                    </tr>
-                    <tr>
-                        <td>10:20</td>
-                        <td>Ibrahimovic</td>
-                        <td>kkkkkkkkk</td>
-                    </tr>
-                </table>
-            </div>
-        </fieldset>
-
-
-        <fieldset class="groupBox" id="vizPacienti" style="display: none; border: none;">
-            <h3>Programari</h3><br>
-            <table id="tabelPacienti" style="display: none;">
-                <tr>
-                    <th id="textData">Data</th>
-                    <th>Ora</th>
-                    <th>Pacient</th>
-                    <th>Confirmare</th>
-                    <th>Modificare</th>
-                </tr>
-                <tr>
-                    <td>21.09.2018</td>
-                    <td>10:20</td>
-                    <td>Kolumban</td>
-                    <td>
-                        <input type="radio" name="option1" id="optionDa" onclick="ifChecked()"> Da
-                        <input type="radio" name="option1" id="optionNu" onclick="ifChecked()"> Nu
-                    </td>
-                    <td><img src="/FrontEnd/edit.png" class="button_img" alt="Logo" width="25" height="25" onclick="show('editProgramare'); tabel('editareProgramare');"></td>
-                </tr>
-                <tr>
-                    <td>20.05.2018</td>
-                    <td>12:45</td>
-                    <td>Hadar</td>
-                    <td>
-                        <input type="radio" name="option1" id="optionDa2" onclick="ifChecked()"> Da
-                        <input type="radio" name="option1" id="optionNu2" onclick="ifChecked()"> Nu
-                    </td>
-                    <td><img src="/FrontEnd/edit.png" class="button_img" alt="Logo" width="25" height="25" onclick="show('totiPacientii'); tabel('tabelTotiPacientii');"></td>
-                </tr>
-            </table>
-        </fieldset>
-
-        <fieldset class="groupBox" id="totiPacientii" style="display: none; border: none;">
-            <h3>Vizualizare pacienti</h3><br>
-            <table id="tabelTotiPacientii" style="display: none;">
-                <tr>
-                    <th>Pacient</th>
-                    <th>Modificare</th>
-                </tr>
-                <tr>
-                    <td>Gutt Robert</td>
-                    <td><img src="/FrontEnd/edit.png" class="button_img" alt="Logo" width="25" height="25" onclick="show('editPacient'); tabel('editarePacient');"></td>
-                </tr>
-                <tr>
-                    <td>Breaz Bobo</td>
-                    <td><img src="/FrontEnd/edit.png" class="button_img" alt="Logo" width="25" height="25" onclick="tabel('tabelProg')"></td>
-                </tr>
-                <td>Mike Tyson</td>
-                <td><img src="/FrontEnd/edit.png" class="button_img" alt="Logo" width="25" height="25" onclick="tabel('tabelProg')"></td>
-                </tr>
-            </table>
-        </fieldset>
-
 
         <fieldset class="groupBox" id="totiDoctorii" style="display: none; border: none;">
             <h3>Vizualizare doctori</h3><br>
@@ -176,97 +61,8 @@
             </table>
         </fieldset>
 
-        <fieldset class="groupBox", id="editPacient" style="display: none; border: none;">
-            <h3>Editare pacient</h3><br>
-            <form id="editarePacient">
-                <label>
-                    <span>Nume:</span>
-                    <input type="text" name="nume" value="Gutt">
-
-                    <span></span>Prenume:
-                    <input type="text" name="prenume" value="Robert">
-                </label>
-                <label>
-                    <span>CNP:</span>
-                    <input type="text" name="cnp" value="3121294124525">
-
-                    <span></span>Telefon:
-                    <input type="text" name="telefon" value="0745234770">
-                </label>
-                <label>
-                    <span>Email:</span>
-                    <input type="text" name="email" value="guttrobert@scs,.ubbcluj.ro">
-
-                    <span></span>Adresa:
-                    <input type="text" name="adresa" value="Strada Ayy lmao, nr 420">
-                </label>
-                <label>
-                    <span>Varsta:</span>
-                    <input type="text" name="varsta" value="26">
-
-                    <span></span>Inaltime:
-                    <input type="text" name="varsta" value="1.95 m">
-
-                    <span></span>Greutate:
-                    <input type="text" name="varsta" value="70 kg">
-                </label>
-                <label>
-                    <span>Telefon2:</span>
-                    <input type="text" name="telPC" value="112">
-                </label>
-                <label>
-                    <span>Istoric:</span>
-                    <textarea rows="5" cols="49" style="resize:none">Ce ma pace rocku</textarea>
-                </label><br><br>
-            </form>
-            <button class="cupid-green" type="button" onclick="alert('Pacient salvat!');hideElem('editPacient')">Salveaza</button>
-        </fieldset>
-
-
-        <fieldset class="groupBox", id="editProgramare" style="display: none; border: none;">
-            <h3>Editare programare</h3><br>
-            <form id="editareProgramare">
-                <label>
-                    <span>Data:</span>
-                    <input type="date" name="data" value="2018-09-21">
-                </label>
-                <label>
-                    <span>Ora:</span>
-                    <input type="time" name="ora" value="10:20">
-                </label>
-                <br><br>
-            </form>
-            <button class="cupid-green" type="button" onclick="alert('Programare modificata cu succes!'); hideElem('editProgramare')">Salveaza</button>
-        </fieldset>
-
         <fieldset class="groupBox" id="paragraf">
-            <p3> Asistent: Nume si prenume asistent</p3>
-        </fieldset>
-
-        <fieldset class="groupBox" id="vizPacient" style="display: none; border: none;">
-            <p style="display: inline;"> Pacient </p>
-            <select name="pacienti" style="display: inline; margin-left: 20px;" onchange="show('vizFisaMedicala')">
-                <option value=""> </option>
-                <option>Kolumban Andrei</option>
-                <option>Hadar Alexandru</option>
-                <option>Nelson Mondialu</option>
-            </select>
-
-            <table id="vizFisaMedicala" style="display: none">
-                <tr>
-                    <th>Data</th>
-                    <th>Vizualizare fisa medicala</th>
-                </tr>
-                <tr>
-                    <td>21.09.2018</td>
-                    <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
-                </tr>
-                <tr>
-                    <td>20.05.2018</td>
-                    <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
-                </tr>
-            </table>
-
+            <p3> Administrator: Nume si prenume administrator</p3>
         </fieldset>
 
         <fieldset class="groupBox" id="crearePacient" style="border-style: groove; display: none">
@@ -316,7 +112,6 @@
             <button class="cupid-green" type="button" onclick="alert('Pacient salvat!'); ">Salveaza</button>
         </fieldset>
 
-
         <fieldset class="groupBox" id="vizProg" style="display: none; border: none;">
             <p style="display: inline;"> Doctor </p>
             <select name="doctori" id="doctori" style="display: inline; margin-left: 20px;" onchange="show('vizFisaMedicala')">
@@ -331,11 +126,27 @@
             <input type="date">
             <button class="cupid-green" type="button" onclick="alert('Pacient salvat!'); ">Generare</button>
         </fieldset>
-        </div>
+
+        <fieldset class="groupBox" id="vizIstoricPacient" style="display: none; border: none;">
+            <h3>Vizualizare istoric</h3><br>
+            <table id="tabelIstoricPacient" style="display: none;">
+                <tr>
+                    <th>Data</th>
+                    <th>Diagnostic</th>
+                    <th>Reteta medicala</th>
+                </tr>
+                <tr>
+                    <td>20/12/2088</td>
+                    <td>Cancer</td>
+                    <td>No escape</td>
+                </tr>
+            </table>
         </fieldset>
+    </div>
+
+</fieldset>
 
         <script>
-
             $.ajax({
                type: "GET",
                 url: "localhost:8080/doctor/",
@@ -414,7 +225,7 @@
 
         </script>
 
-    </div>
+</div>
 </fieldset>
 </body>
 </html>

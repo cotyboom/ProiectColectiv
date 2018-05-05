@@ -6,22 +6,19 @@
     <link rel="stylesheet" type="text/css" href="/FrontEnd/personalizedStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body class="container">
-<fieldset style="background-color: white;border: none; height: 1100px">
+<div class="container">
+<fieldset style="background-color: white; border: none; height: 1100px">
     <img src="/FrontEnd/logo.png" alt="Logo" width="130" height="90" style="display:inline">
     <h6 class="h5" >
         <img src="/FrontEnd/telefon.png" alt="Logo" width="15" height="15" style="display:inline;margin-left: 20px"> (0264) 315178<br>
     </h6>
-    <h6 class="/FrontEnd/iconmail" >
-        <img src="mail.png" alt="Logo" width="15" height="15" style="display:inline;margin-right: 5px">clinica5D@gmail.com
+    <h6 class="iconmail" >
+        <img src="/FrontEnd/mail.png" alt="Logo" width="15" height="15" style="display:inline;margin-right: 5px">clinica5D@gmail.com
     </h6>
 
-
-
-    <ul class="main-navigation"  >
-        <li><a href="#"><b>Acasa</b></a></li>
-        <li><a href="#" onclick="hideAll(); show('vizPacienti'); tabel('tabelPacienti');"><b>Programari</b></a>
-        </li>
+    <ul class="main-navigation" >
+        <li><a href="#" onclick="hideAll(); show('paragraf')"><b>Acasa</b></a></li>
+        <li><a href="#" onclick="hideAll(); show('vizPacienti'); tabel('tabelPacienti');"><b>Programari</b></a></li>
         <li><a href="#"><b>Pacienti</b></a>
             <ul>
                 <li ><a href="#"onclick="hideAll(); show('totiPacientii'); tabel('tabelTotiPacientii');"><b>Vizualizare</b></a></li>
@@ -29,70 +26,10 @@
 
             </ul>
         </li>
-        <li style="float: right"><a href="#"><b>Logout</b></a></li>
+        <li style="float: right"><a href="/login"><b>Logout</b></a></li>
     </ul>
 
     <div style="margin-top: 50px">
-        <fieldset class="groupBox" id="Programari" style="border: none">
-            <div>
-                <table id="tabelViz" style="display: none;">
-                    <tr>
-                        <th>Data</th>
-                        <th>Vizualizare programare</th>
-                    </tr>
-                    <tr>
-                        <td>21.09.2018</td>
-                        <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="25" height="25" onclick="tabel('tabelProg')"></td>
-                    </tr>
-                    <tr>
-                        <td>20.05.2018</td>
-                        <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="25" height="25" onclick="tabel('tabelProg2')"></td>
-                    </tr>
-                </table>
-
-                <table id="tabelProg" style="display:none;" >
-                    <tr>
-                        <th>Ora</th>
-                        <th>Pacient</th>
-                        <th>Consultatie</th>
-                    </tr>
-                    <tr>
-                        <td>14:05</td>
-                        <td>Kolumban Andrei</td>
-                        <td>asdasd</td>
-                    </tr>
-                    <tr>
-                        <td>05:00</td>
-                        <td>Hadar Alexandru</td>
-                        <td>asdasdd</td>
-                    </tr>
-                </table>
-
-                <table id="tabelProg2" style="display:none;" >
-                    <tr>
-                        <th>Ora</th>
-                        <th>Pacient</th>
-                        <th>Consultatie</th>
-                    </tr>
-                    <tr>
-                        <td>14:50</td>
-                        <td>Mike Tyson</td>
-                        <td>lul</td>
-                    </tr>
-                    <tr>
-                        <td>05:20</td>
-                        <td>Salem</td>
-                        <td>asdasdd</td>
-                    </tr>
-                    <tr>
-                        <td>10:20</td>
-                        <td>Ibrahimovic</td>
-                        <td>kkkkkkkkk</td>
-                    </tr>
-                </table>
-            </div>
-        </fieldset>
-
 
         <fieldset class="groupBox" id="vizPacienti" style="display: none; border: none;">
             <h3>Programari</h3><br>
@@ -127,6 +64,22 @@
             </table>
         </fieldset>
 
+        <fieldset class="groupBox" id="editProgramare" style="display: none; border: none;">
+            Editare programare
+            <form id="editareProgramare">
+                <label>
+                    <span>Data:</span>
+                    <input type="date" name="data">
+                </label>
+                <label>
+                    <span>Ora:</span>
+                    <input type="time" name="ora">
+                </label>
+                <br><br>
+            </form>
+            <button class="cupid-green" type="button" onclick="alert('Programare editata cu succes!'); hideElem('editProgramare'); show('Programari'); tabel('tabelProgramari')">Salveaza</button>
+        </fieldset>
+
         <fieldset class="groupBox" id="totiPacientii" style="display: none; border: none;">
             <h3>Vizualizare pacienti</h3><br>
             <table id="tabelTotiPacientii" style="display: none;">
@@ -146,69 +99,6 @@
                     <td><img src="/FrontEnd/edit.png" class="button_img" alt="Logo" width="25" height="25" onclick="tabel('tabelProg')"></td>
                 </tr>
             </table>
-        </fieldset>
-
-        <fieldset class="groupBox", id="editPacient" style="display: none; border: none;">
-            <h3>Editare pacient</h3><br>
-            <form id="editarePacient">
-                <label>
-                    <span>Nume:</span>
-                    <input type="text" name="nume" value="Gutt">
-
-                    <span></span>Prenume:
-                    <input type="text" name="prenume" value="Robert">
-                </label>
-                <label>
-                    <span>CNP:</span>
-                    <input type="text" name="cnp" value="3121294124525">
-
-                    <span></span>Telefon:
-                    <input type="text" name="telefon" value="0745234770">
-                </label>
-                <label>
-                    <span>Email:</span>
-                    <input type="text" name="email" value="guttrobert@scs,.ubbcluj.ro">
-
-                    <span></span>Adresa:
-                    <input type="text" name="adresa" value="Strada Ayy lmao, nr 420">
-                </label>
-                <label>
-                    <span>Varsta:</span>
-                    <input type="text" name="varsta" value="26">
-
-                    <span></span>Inaltime:
-                    <input type="text" name="varsta" value="1.95 m">
-
-                    <span></span>Greutate:
-                    <input type="text" name="varsta" value="70 kg">
-                </label>
-                <label>
-                    <span>Telefon2:</span>
-                    <input type="text" name="telPC" value="112">
-                </label>
-                <label>
-                    <span>Istoric:</span>
-                    <textarea rows="5" cols="49" style="resize:none">Ce ma pace rocku</textarea>
-                </label><br><br>
-            </form>
-            <button class="cupid-green" type="button" onclick="alert('Pacient salvat!');hideElem('editPacient')">Salveaza</button>
-        </fieldset>
-
-
-        <fieldset class="groupBox", id="editProgramare" style="display: none; border: none;">
-            <h3>Editare programare</h3><br>
-            <form id="editareProgramare">
-                <label>
-                    <span>Data:</span>
-                    <input type="date" name="data" value="2018-09-21">
-                </label>
-                <label>
-                    <span>Ora:</span>
-                    <input type="time" name="ora" value="10:20">
-                </label>
-                <br><br>
-            </form>
-            <button class="cupid-green" type="button" onclick="alert('Programare modificata cu succes!'); hideElem('editProgramare')">Salveaza</button>
         </fieldset>
 
         <fieldset class="groupBox" id="paragraf">
@@ -271,8 +161,9 @@
 
                     <span></span>Inaltime:
                     <input type="text" name="varsta">
-
-                    <span></span>Greutate:
+                </label>
+                <label>
+                    <span>Greutate:</span>
                     <input type="text" name="varsta">
                 </label>
                 <label>
@@ -352,5 +243,5 @@
 
     </div>
 </fieldset>
-</body>
+</div>
 </html>

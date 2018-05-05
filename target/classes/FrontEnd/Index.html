@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V2</title>
+	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -32,7 +32,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form">
+				<form class="login100-form validate-form">
 					<span class="login100-form-title p-b-26">
 						Welcome
 					</span>
@@ -40,33 +40,29 @@
 						<i class="zmdi zmdi-font"></i>
 					</span>
 
-					<div class="wrap-input100">
-						<input class="input100" type="text" name="email" id="email">
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<input class="input100" type="text" name="email">
 						<span class="focus-input100" data-placeholder="Email"></span>
-						<script>
-							//var uu = document.getElementsByName("email");
-							//console.log(uu);
-						</script>
 					</div>
 
-					<div class="wrap-input100" data-validate="Enter password">
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass" id="pass">
+						<input class="input100" type="password" name="pass">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn classToClick">
+							<button class="login100-form-btn">
 								Login
 							</button>
 						</div>
 					</div>
 
-					<div class="text-center p-t-115">
+					<!--<div class="text-center p-t-115">
 						<span class="txt1">
 							Don’t have an account?
 						</span>
@@ -74,7 +70,7 @@
 						<a class="txt2" href="#">
 							Sign Up
 						</a>
-					</div>
+					</div>-->
 				</form>
 			</div>
 		</div>
@@ -98,7 +94,7 @@
 <!--===============================================================================================-->
 	<script src="/FrontEnd/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="/FrontEnd/js/login.js"></script>
+	<script src="/FrontEnd/js/main.js"></script>
 
 </body>
 </html>

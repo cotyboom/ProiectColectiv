@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/FrontEnd/personalizedStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body class="container">
+<div class="container">
 <fieldset style="background-color: white; border: none; height: 1100px">
     <img src="/FrontEnd/logo.png" alt="Logo" width="130" height="90" style="display:inline">
     <h6 class="h5" >
@@ -18,28 +18,26 @@
 
 
     <ul class="main-navigation" >
-        <li><a href="#"><b>Acasa</b></a></li>
-        <li><a href="#" onclick="hideAll(); show('Programari'); show('tabelViz');"><b>Programari</b></a>
-        </li>
+        <li><a href="#" onclick="hideAll();  show('paragraf')"><b>Acasa</b></a></li>
+        <li><a href="#" onclick="hideAll(); show('Programari'); show('tabelViz');"><b>Programari</b></a></li>
         <li><a href="#"><b>Fisa medicala</b></a>
             <ul>
                 <li ><a href="#" onclick="hideAll(); show('vizPacient');"><b>Vizualizare</b></a></li>
                 <li><a href="#"><b>Creare</b></a>
                     <ul>
                         <li><a href="#" onclick="hideAll(); show('creareFisa');"><b>Fisa medicala</b></a></li>
-                        <li><a href="#" onclick="hideAll(); show('creareFisa');"><b>Reteta</b></a></li>
+                        <li><a href="#" onclick="hideAll(); show('creareReteta');"><b>Reteta</b></a></li>
                     </ul>
                 </li>
             </ul>
         </li>
         <li><a href="#" onClick="hideAll(); show('crearePacient')"><b>Adaugare pacient</b></a>
-        <li style="float: right"><a href="#"><b>Logout</b></a></li>
+        <li style="float: right"><a href="/login"><b>Logout</b></a></li>
     </ul>
-
-    <div style="margin-top: 50px">
+    <div style="margin-top: 40px">
         <fieldset class="groupBox" id="Programari" style="border: none">
             <div>
-                <table id="tabelViz" style="display: none;">
+                <table id="tabelViz" style="display: none; margin-top: 20px">
                     <tr>
                         <th>Data</th>
                         <th>Vizualizare programare</th>
@@ -54,7 +52,7 @@
                     </tr>
                 </table>
 
-                <table id="tabelProg" style="display:none;" >
+                <table id="tabelProg" style="display:none;">
                     <tr>
                         <th>Ora</th>
                         <th>Pacient</th>
@@ -78,29 +76,25 @@
             <p style="display: inline;"> Pacient </p>
             <select name="pacienti" style="display: inline; margin-left: 20px;" onchange="show('vizFisaMedicala')">
                 <option value=""> </option>
-                <option>Kolumban Andrei</option>
+                <option onclick="show('vizPacient')">Kolumban Andrei</option>
                 <option>Hadar Alexandru</option>
                 <option>Nelson Mondialu</option>
             </select>
 
             <table id="vizFisaMedicala" style="display: none">
                 <tr>
+                    <th>Nume medic</th>
+                    <th>Prenume medic</th>
                     <th>Data</th>
-                    <th>Vizualizare fisa medicala</th>
-                </tr>
-                <tr>
-                    <td>21.09.2018</td>
-                    <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
-                </tr>
-                <tr>
-                    <td>20.05.2018</td>
-                    <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
+                    <th>Nume pacient</th>
+                    <th>Prenume pacient</th>
                 </tr>
             </table>
 
         </fieldset>
 
         <fieldset class="groupBox" id="creareFisa" style="border-style: groove; display: none" >
+            <legend>Creare fisa medicala</legend>
             <form>
                 - Nume medic:
                 <input type="text" name="numeM"><br><br>
@@ -115,9 +109,32 @@
             </form>
         </fieldset>
 
+        <fieldset class="groupBox" id="creareReteta" style="border-style: groove; display: none" >
+            <legend>Creare reteta medicala</legend>
+            <form>
+                - Nume medic:
+                <input type="text" name="numeM"><br><br>
+                - Prenume medic:
+                <input type="text" name="prenumeM"><br><br>
+                - Data intocmirii retetei medicale:
+                <input type="date" name="data"><br><br>
+                - Nume pacient:
+                <input type="text" name="numeP"><br><br>
+                - Prenume pacient:
+                <input type="text" name="prenumeP"><br><br>
+            </form>
+        </fieldset>
+
+        <fieldset class="groupBox" id="paragraf">
+            <p3> Doctor: Nume si prenume doctor</p3>
+        </fieldset>
+
+        <p3 class="groupBox" id="mesaj" style="margin-bottom: 10px; display: none">
+            Doresti sa adaugi alt pacient? Apasa din nou pe butonul "Adaugare pacient".
+        </p3>
 
         <fieldset class="groupBox" id="crearePacient" style="border-style: groove; display: none">
-            <h3>Adaugare doctor</h3><br>
+            <h3>Adaugare pacient</h3><br>
             <form id = "crearePacientt">
                 <label>
                     <span>Nume:</span>
@@ -146,8 +163,9 @@
 
                     <span></span>Inaltime:
                     <input type="text" name="varsta">
-
-                    <span></span>Greutate:
+                </label>
+                <label>
+                    <span>Greutate:</span>
                     <input type="text" name="varsta">
                 </label>
                 <label>
@@ -160,9 +178,10 @@
                     </textarea>
                 </label><br><br><br>
             </form>
-            <button class="cupid-green" type="button" onclick="alert('Pacient salvat!'); ">Salveaza</button>
+            <button class="cupid-green" type="button" onclick="alert('Pacient salvat!'); hideAll(); show('mesaj')">Salveaza</button>
         </fieldset>
-    <script>
+
+        <script>
         function tabel(id_element) {
             var x = document.getElementById(id_element);
             if (x.style.display != "none") {
@@ -209,5 +228,5 @@
 
     </div>
 </fieldset>
-</body>
+</div>
 </html>
