@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+    <meta charset="UTF-8">
+    <title>Webomatic</title>
+
+    <meta name='viewport' content='width=device-width, initial-scale=1'/>
+
+    <!-- links -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+
+
+    <!-- scripts -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/FrontEnd/js/login.js"></script>
+
+
 
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="span12">
-                <form class="form-horizontal" action='' method="POST">
-                    <fieldset>
                         <div id="legend">
                             <legend class="">Login</legend>
                         </div>
@@ -29,16 +45,15 @@
                             <label class="control-label" for="password">Password</label>
                             <div class="controls">
                                 <input type="password" id="password" name="password" placeholder="">
-                            </div>
+                            </div><br>
                         </div>
                         <div class="control-group">
                             <!-- Button -->
                             <div class="controls">
-                                <button class="btn btn-success">Login</button>
+                                <button id="classToClick" class="btn btn-success classToClick">Login</button>
                             </div>
                         </div>
-                    </fieldset>
-                </form>
+
             </div>
         </div>
     </div>

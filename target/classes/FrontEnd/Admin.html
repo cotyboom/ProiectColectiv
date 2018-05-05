@@ -34,36 +34,37 @@
          <li style="float: right"><a href="/login"><b>Logout</b></a></li>
     </ul>
 
-    <div style="margin-top: 50px">
+    <fieldset class="groupBox" id="paragraf">
+        <p3> Administrator: Nume si prenume administrator</p3>
+    </fieldset>
+    <br>
 
-        <fieldset class="groupBox" id="totiDoctorii" style="display: none; border: none;">
-            <h3>Vizualizare doctori</h3><br>
-            <table id="tabelTotiDoctorii" style="display: none;">
-                <tr>
-                    <th>Doctori</th>
-                    <th>Vizualizare</th>
-                    <th>Stergere</th>
-                </tr>
-                <tr>
-                    <td>Gutt Robert</td>
-                    <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="25" height="25" ></td>
-                    <td><img src="/FrontEnd/delete.png" class="button_img" alt="Logo" width="25" height="25" onclick="alert('Doctor sters!')"></td>
-                </tr>
-                <tr>
-                    <td>Breaz Bobo</td>
-                    <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="25" height="25"></td>
-                    <td><img src="/FrontEnd/delete.png" class="button_img" alt="Logo" width="25" height="25" onclick="alert('Pacient salvat!')"></td>
-                </tr>
-                <td>Mike Tyson</td>
-                <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="25" height="25"></td>
-                <td><img src="/FrontEnd/delete.png" class="button_img" alt="Logo" width="25" height="25" onclick="alert('Pacient salvat!')"></td>
-                </tr>
-            </table>
-        </fieldset>
+    <div id='tableContainer'>
+        <table id='tableAdmin' class='table'>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nume</th>
+                <th>Prenume</th>
+                <th>CNP</th>
+                <th>Telefon</th>
+                <th>Adresa</th>
+                <th>Mail</th>
+                <th>
+                    <button type='button' class='btn menuBtn cupid-green' data-toggle='modal' data-target='#create-doctor'
+                            id='add_menu_button'>Add Doctor
+                    </button>
+                </th>
+                <th>
+                    <button type='button' class='btn menuBtn cupid-green' id='refresh_doctor'>Refresh</button>
+                </th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
-        <fieldset class="groupBox" id="paragraf">
-            <p3> Administrator: Nume si prenume administrator</p3>
-        </fieldset>
+
 
         <fieldset class="groupBox" id="crearePacient" style="border-style: groove; display: none">
             <h3>Adaugare doctor</h3><br>
@@ -142,27 +143,39 @@
                 </tr>
             </table>
         </fieldset>
-    </div>
+
 
 </fieldset>
 
         <script>
-            $.ajax({
-               type: "GET",
-                url: "localhost:8080/doctor/",
-                dataType: "json",
-                succes: function(response){
-                    var doctorList = $('#doctori');
-                    for(var i=0; i<response.length;i++)
-                    {
-                        var val = response[i].name;
-                        doctorList.append("<option value='"+respose[i].id+"'>"+val+"</option>");
-                    }
-                },
-                error:function(msg){
-                   console,log(msg);
+
+
+
+
+
+            function getDoctors() {
+                $('#tableAdmin tbody').empty();
+                $.getJSON('http://localhost:8080/doctor/', null, function (data) {
+                    $.each(data, function (index, item) {
+                        var row = '<tr>';
+                        row = row + '<td class="dataid" >' + item.id + '</td>';
+                        row = row + '<td class="datanume" >' + item.nume + '</td>';
+                        row = row + '<td class="dataprenume" >' + item.prenume + '</td>';
+                        row = row + '<td class="datacnp" >' + item.cnp + '</td>';
+                        row = row + '<td class="dataadresa" >' + item.adresa + '</td>';
+                        row = row + '<td class="dataemail" >' + item.email + '</td>';
+                        row = row + '<td class="datatelefon" >' + item.telefon + '</td>';
+                        // row = row + '<td><button class="btn edit-item editMenu_item"><span class="glyphicon active glyphicon-pencil" aria-hidden="true"></span></button></td>';
+                        row = row + '<td><button class="btn btn-danger remove-item deleteMenu_item"><span class="glyphicon active glyphicon-remove" aria-hidden="true"></span></button></td>';
+                        row = row + '</tr>';
+                        $('#tableAdmin tbody:last-child').append(row);
+                    });
+                });
+
+
             }
-            });
+
+
 
             function tabel(id_element) {
                 var x = document.getElementById(id_element);
@@ -222,6 +235,15 @@
                     // DO NOTHING
                 }
             }
+
+
+            $(document).ready(
+                function ()
+                {
+                    getDoctors();
+
+                }
+            );
 
         </script>
 
