@@ -6,40 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="4bcb29af-3f6a-40d6-8a08-d70b89ddafb4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/FrontEnd/Admin.html" afterPath="$PROJECT_DIR$/target/classes/FrontEnd/Admin.html" />
-      <change beforePath="$PROJECT_DIR$/target/classes/FrontEnd/Asistent.html" afterPath="$PROJECT_DIR$/target/classes/FrontEnd/Asistent.html" />
-      <change beforePath="$PROJECT_DIR$/target/classes/FrontEnd/Doctor.html" afterPath="$PROJECT_DIR$/target/classes/FrontEnd/Doctor.html" />
-      <change beforePath="$PROJECT_DIR$/target/classes/FrontEnd/Index.html" afterPath="$PROJECT_DIR$/target/classes/FrontEnd/Index.html" />
-      <change beforePath="$PROJECT_DIR$/target/classes/FrontEnd/Pacient.html" afterPath="$PROJECT_DIR$/target/classes/FrontEnd/Pacient.html" />
-      <change beforePath="$PROJECT_DIR$/target/classes/FrontEnd/js/login.js" afterPath="$PROJECT_DIR$/target/classes/FrontEnd/js/login.js" />
-      <change beforePath="$PROJECT_DIR$/target/classes/FrontEnd/personalizedStyle.css" afterPath="$PROJECT_DIR$/target/classes/FrontEnd/personalizedStyle.css" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FrontEnd/Login.html" afterPath="$PROJECT_DIR$/src/main/resources/FrontEnd/Login.html" />
     </list>
-    <list id="c73549fd-7171-4e22-b31f-501901d371ad" name="azi" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/ProiectColectiv.iml" afterPath="$PROJECT_DIR$/ProiectColectiv.iml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FrontEnd/Admin.html" afterPath="$PROJECT_DIR$/src/main/resources/FrontEnd/Admin.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FrontEnd/Asistent.html" afterPath="$PROJECT_DIR$/src/main/resources/FrontEnd/Asistent.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html" afterPath="$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FrontEnd/Index.html" afterPath="$PROJECT_DIR$/src/main/resources/FrontEnd/Index.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FrontEnd/Pacient.html" afterPath="$PROJECT_DIR$/src/main/resources/FrontEnd/Pacient.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FrontEnd/personalizedStyle.css" afterPath="$PROJECT_DIR$/src/main/resources/FrontEnd/personalizedStyle.css" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
-    </list>
+    <list id="c73549fd-7171-4e22-b31f-501901d371ad" name="azi" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="E:\ProiectColectiv\.idea\shelf/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <file path="$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/misc.xml" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/resources/FrontEnd/personalizedStyle.css" ignored="false" />
-    <file path="$PROJECT_DIR$/ProiectColectiv.iml" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/resources/application.properties" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/resources/FrontEnd/Pacient.html" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/resources/FrontEnd/Admin.html" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/resources/FrontEnd/Index.html" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/resources/FrontEnd/Asistent.html" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/FrontEnd/Login.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+              <caret line="17" column="34" lean-forward="false" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -169,6 +143,7 @@
       <find>popp</find>
       <find>main.js</find>
       <find>focus</find>
+      <find>inpu</find>
     </findStrings>
     <replaceStrings>
       <replace>4da6ff</replace>
@@ -209,7 +184,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html" />
         <option value="$PROJECT_DIR$/src/main/resources/FrontEnd/Pacient.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/FrontEnd/Login.html" />
         <option value="$PROJECT_DIR$/src/main/resources/FrontEnd/Admin.html" />
         <option value="$PROJECT_DIR$/src/main/resources/FrontEnd/Asistent.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -218,6 +192,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/FrontEnd/js/main.js" />
         <option value="$PROJECT_DIR$/src/main/resources/FrontEnd/Index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/FrontEnd/js/login.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/FrontEnd/Login.html" />
       </list>
     </option>
   </component>
@@ -512,7 +487,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26359000" />
+    <option name="totallyTimeSpent" value="27142000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -534,10 +509,10 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.70888156" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.70888156" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.75328946" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36842105" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19078948" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27458397" sideWeight="0.8095238" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -925,7 +900,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/FrontEnd/Login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <caret line="17" column="34" lean-forward="false" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="34" />
           <folding />
         </state>
       </provider>
