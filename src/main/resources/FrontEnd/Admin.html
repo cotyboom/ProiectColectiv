@@ -5,6 +5,113 @@
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="/FrontEnd/personalizedStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script language="JavaScript" type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+
+
+     function salveazaPacient() {
+         var nume = $('#nume').val();
+         var prenume = $('#prenume').val();
+         var cnp = $('#cnp').val();
+         var telefon = $('#telefon').val();
+         var email = $('#email').val();
+         var adresa = $('#adresa').val();
+         var varsta = $('#varsta').val();
+         var inaltime = $('#inaltime').val();
+         var greutate = $('#greutate').val();
+         var istoric = $('#istoric').val();
+
+
+        console.log(nume);
+    }
+
+
+    function getDoctors() {
+            $('#tableAdmin tbody').empty();
+            $.getJSON('http://localhost:8080/doctor/', function (data) {
+                $.each(data, function (index, item) {
+                    var row = '<tr>';
+                    console.log("here");
+                    row = row + '<td class="datanume" >' + item.nume + '</td>';
+                    row = row + '<td class="dataprenume" >' + item.prenume + '</td>';
+                    row = row + '<td class="datacnp" >' + item.cnp + '</td>';
+                    row = row + '<td class="dataadresa" >' + item.adresa + '</td>';
+                    row = row + '<td class="dataemail" >' + item.email + '</td>';
+                    row = row + '<td class="datatelefon" >' + item.telefon + '</td>';
+                    // row = row + '<td><button class="btn edit-item editMenu_item"><span class="glyphicon active glyphicon-pencil" aria-hidden="true"></span></button></td>';
+                    row = row + '<td><button class="btn btn-danger remove-item deleteMenu_item"><span class="glyphicon active glyphicon-remove" aria-hidden="true"></span></button></td>';
+                    row = row + '</tr>';
+                    $('#tableAdmin tbody:last-child').append(row);
+                });
+            });
+
+
+        }
+
+
+        function tabel(id_element) {
+            var x = document.getElementById(id_element);
+            if (x.style.display != "none") {
+                hide(id_element);
+            } else {
+                x.style.display = "block";
+                x.style.display = "inline";
+            }
+        }
+
+        function hide(id_element) {
+            var x = document.getElementById(id_element);
+            document.getElementsByTagName();
+            x.style.display = "none";
+        }
+
+        function hideElem(id_element) {
+            var elem = document.getElementById(id_element);
+            elem.style.display = "none";
+        }
+
+        function hideAll() {
+            var elements = document.getElementsByClassName("groupBox");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.display = "none";
+            }
+        }
+
+        function show(id_element) {
+            var x = document.getElementById(id_element);
+            x.style.display = "block";
+        }
+
+        function ifChecked() {
+
+            if (document.getElementById("optionDa").checked == true) {
+                alert("Programare acceptata!");
+                document.getElementsByClassName("td").Color = Green;
+            }
+            else if (document.getElementById("optionNu").checked == true) {
+                alert("Programare respinsa!");
+                document.getElementsByClassName("td").Color = Red;
+            }
+            else if (document.getElementById("optionDa2").checked == true) {
+                alert("Programare acceptata!");
+                document.getElementsByClassName("td").Color = Red;
+            }
+            else if (document.getElementById("optionNu2").checked == true) {
+                alert("Programare respinsa!");
+                document.getElementsByClassName("td").Color = Red;
+            }
+            else {
+                // DO NOTHING
+            }
+        }
+        $(document).ready(
+            function ()
+            {
+                getDoctors();
+
+            }
+        );
+    </script>
 </head>
 <div class="container">
 <fieldset style="background-color: white; border: none; height: 1100px">
@@ -50,14 +157,6 @@
                 <th>Telefon</th>
                 <th>Adresa</th>
                 <th>Mail</th>
-                <th>
-                    <button type='button' class='btn menuBtn cupid-green' data-toggle='modal' data-target='#create-doctor'
-                            id='add_menu_button'>Add Doctor
-                    </button>
-                </th>
-                <th>
-                    <button type='button' class='btn menuBtn cupid-green' id='refresh_doctor'>Refresh</button>
-                </th>
             </tr>
             </thead>
             <tbody></tbody>
@@ -71,46 +170,42 @@
             <form id = "crearePacientt">
                 <label>
                     <span>Nume:</span>
-                    <input type="text" name="nume">
+                    <input id = "nume" type="text" name="nume">
 
                     <span></span>Prenume:
-                    <input type="text" name="prenume">
+                    <input id = "prenume" type="text" name="prenume">
                 </label>
                 <label>
                     <span>CNP:</span>
-                    <input type="text" name="cnp">
+                    <input id = "cnp" type="text" name="cnp">
 
                     <span></span>Telefon:
-                    <input type="text" name="telefon">
+                    <input id = "telefon" type="text" name="telefon">
                 </label>
                 <label>
                     <span>Email:</span>
-                    <input type="text" name="email">
+                    <input id="email" type="text" name="email">
 
                     <span></span>Adresa:
-                    <input type="text" name="adresa">
+                    <input id="adresa" type="text" name="adresa">
                 </label>
                 <label>
                     <span>Varsta:</span>
-                    <input type="text" name="varsta">
+                    <input id = "varsta" type="text" name="varsta">
 
                     <span></span>Inaltime:
-                    <input type="text" name="varsta">
+                    <input id = "inaltime" type="text" name="varsta">
 
                     <span></span>Greutate:
-                    <input type="text" name="varsta">
-                </label>
-                <label>
-                    <span>Telefon2:</span>
-                    <input type="text" name="telPC">
+                    <input id = "greutate" type="text" name="varsta">
                 </label>
                 <label>
                     <span>Istoric:</span>
-                    <textarea rows="5" cols="49" style="resize:none">
+                    <textarea id = "istoric " rows="5" cols="49" style="resize:none">
                     </textarea>
                 </label><br><br><br>
             </form>
-            <button class="cupid-green" type="button" onclick="alert('Pacient salvat!'); ">Salveaza</button>
+            <button class="cupid-green" type="button" onclick="salveazaPacient() ; alert('Pacient salvat!'); ">Salveaza</button>
         </fieldset>
 
         <fieldset class="groupBox" id="vizProg" style="display: none; border: none;">
@@ -146,106 +241,6 @@
 
 
 </fieldset>
-
-        <script>
-
-
-
-
-
-            function getDoctors() {
-                $('#tableAdmin tbody').empty();
-                $.getJSON('http://localhost:8080/doctor/', null, function (data) {
-                    $.each(data, function (index, item) {
-                        var row = '<tr>';
-                        row = row + '<td class="dataid" >' + item.id + '</td>';
-                        row = row + '<td class="datanume" >' + item.nume + '</td>';
-                        row = row + '<td class="dataprenume" >' + item.prenume + '</td>';
-                        row = row + '<td class="datacnp" >' + item.cnp + '</td>';
-                        row = row + '<td class="dataadresa" >' + item.adresa + '</td>';
-                        row = row + '<td class="dataemail" >' + item.email + '</td>';
-                        row = row + '<td class="datatelefon" >' + item.telefon + '</td>';
-                        // row = row + '<td><button class="btn edit-item editMenu_item"><span class="glyphicon active glyphicon-pencil" aria-hidden="true"></span></button></td>';
-                        row = row + '<td><button class="btn btn-danger remove-item deleteMenu_item"><span class="glyphicon active glyphicon-remove" aria-hidden="true"></span></button></td>';
-                        row = row + '</tr>';
-                        $('#tableAdmin tbody:last-child').append(row);
-                    });
-                });
-
-
-            }
-
-
-
-            function tabel(id_element) {
-                var x = document.getElementById(id_element);
-                if (x.style.display != "none") {
-                    hide(id_element);
-                } else {
-                    x.style.display = "block";
-                    x.style.display = "inline";
-                }
-            }
-
-            function hide(id_element)
-            {
-                var x = document.getElementById(id_element);
-                document.getElementsByTagName();
-                x.style.display = "none";
-            }
-
-            function hideElem(id_element){
-                var elem = document.getElementById(id_element);
-                elem.style.display = "none";
-            }
-
-            function hideAll()
-            {
-                var elements = document.getElementsByClassName("groupBox");
-                for(var i=0; i<elements.length; i++) {
-                    elements[i].style.display = "none";
-                }
-            }
-
-            function show(id_element)
-            {
-                var x = document.getElementById(id_element);
-                x.style.display ="block";
-            }
-
-            function ifChecked() {
-
-                if (document.getElementById("optionDa").checked == true) {
-                    alert("Programare acceptata!");
-                    document.getElementsByClassName("td").Color = Green;
-                }
-                else if (document.getElementById("optionNu").checked == true) {
-                    alert("Programare respinsa!");
-                    document.getElementsByClassName("td").Color = Red;
-                }
-                else if (document.getElementById("optionDa2").checked == true) {
-                    alert("Programare acceptata!");
-                    document.getElementsByClassName("td").Color = Red;
-                }
-                else if (document.getElementById("optionNu2").checked == true) {
-                    alert("Programare respinsa!");
-                    document.getElementsByClassName("td").Color = Red;
-                }
-                else {
-                    // DO NOTHING
-                }
-            }
-
-
-            $(document).ready(
-                function ()
-                {
-                    getDoctors();
-
-                }
-            );
-
-        </script>
 
 </div>
 </fieldset>

@@ -55,6 +55,8 @@ $(document).ready(function ()
         console.log("USERNAME: " + qwerty);
         console.log("PASSWORD: " + qwerty2);
 
+
+
         if(qwerty === "doctor" && qwerty2 === "doctor")
         {
             console.log("GOING TO THE DOCTOR");
