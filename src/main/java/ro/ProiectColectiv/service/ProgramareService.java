@@ -27,4 +27,8 @@ public class ProgramareService
     public void createProgramare(Programare programare) {programareRepository.save(programare);}
 
     public Programare getById(Long id) { return programareRepository.findById(id);}
+
+    public List<Programare> getByIdDoctor( String id) { return programareRepository.findByIdDoctor(id);}
+
+    public List<Programare> getByIdPacient(String id){ return programareRepository.findByIdPacient(id);}
 }

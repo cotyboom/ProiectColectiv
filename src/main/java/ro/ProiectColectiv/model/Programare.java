@@ -28,10 +28,18 @@ public class Programare {
     @Column
     private String cabinet;
 
-    public Programare(String ora, String date, String cabinet)
+    @Column
+    private String idDoctor;
+
+    @Column
+    private String idPacient;
+
+    public Programare(String ora, String date, String cabinet, String idDoctor, String idPacient)
     {
         this.ora = ora;
         this.date=date;
         this.cabinet=cabinet;
+        this.idDoctor = idDoctor;
+        this.idPacient =idPacient;
     }
 }

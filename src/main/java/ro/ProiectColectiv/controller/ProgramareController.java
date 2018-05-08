@@ -35,4 +35,17 @@ public class ProgramareController {
 
         return programare;
     }
+
+    @RequestMapping(value = "/getByIdDoctor/{id}", method = RequestMethod.GET)
+    public List<Programare> getByIdDoctor(String id) {
+        List < Programare > programareList = programareService.getByIdDoctor(id);
+        return programareList;
+    }
+
+    @RequestMapping(value = "/getByIdPacient/{id}", method = RequestMethod.GET)
+    public List<Programare> getByIdPacient(String id) {
+        List < Programare > programareList = programareService.getByIdPacient(id);
+        return programareList;
+    }
+
 }

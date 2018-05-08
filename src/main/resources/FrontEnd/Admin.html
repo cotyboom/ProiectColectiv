@@ -9,7 +9,7 @@
     <script>
 
 
-     function salveazaPacient() {
+    function salveazaPacient() {
          var nume = $('#nume').val();
          var prenume = $('#prenume').val();
          var cnp = $('#cnp').val();
@@ -24,6 +24,35 @@
 
         console.log(nume);
     }
+
+    function dropDownDoctors(){
+        $.getJSON("http://localhost:8080/doctor/", function(result) {
+            var options = $("#dropDownDoctor");
+            $.each( result, function(key, val) {
+                var option = new Option(val.nume);
+                console.log(option);
+                options.append(option);
+            });
+        });
+    }
+
+     function dropDownPacient(){
+         $.getJSON("http://localhost:8080/pacient/", function(result) {
+             var options = $("#dropDownPacient");
+             $.each( result, function(key, val) {
+                 var option = new Option(val.nume, val.nume);
+                 options.append(option);
+
+             });
+         });
+     }
+    function getProgramariForSelectedDoctor() {
+        console.log($("#dropDownDoctor").val());
+    }
+
+     function getIstoricPacient(){
+         $("#dropDownPacient");
+     }
 
 
     function getDoctors() {
@@ -108,6 +137,8 @@
             function ()
             {
                 getDoctors();
+                dropDownDoctors();
+                dropDownPacient();
 
             }
         );
@@ -134,8 +165,8 @@
         </li>
         <li><a href="#"><b>Vizualizare</b></a>
             <ul>
-                <li><a href="#" onclick="hideAll(); show('vizProg');"><b>Programari doctor</b></a></li>
-                <li><a href="#" onclick="hideAll(); show('vizIstoricPacient'); tabel('tabelIstoricPacient')"><b>Istoric pacient</b></a></li>
+                <li><a href="#" onclick="hideAll(); show('vizProg'); "><b>Programari doctor</b></a></li>
+                <li><a href="#" onclick="hideAll(); show('vizIstoricPacient'); "><b>Istoric pacient</b></a></li>
             </ul>
         </li>
          <li style="float: right"><a href="/login"><b>Logout</b></a></li>
@@ -210,33 +241,34 @@
 
         <fieldset class="groupBox" id="vizProg" style="display: none; border: none;">
             <p style="display: inline;"> Doctor </p>
-            <select name="doctori" id="doctori" style="display: inline; margin-left: 20px;" onchange="show('vizFisaMedicala')">
-                <option value=""> </option>
-                <option>Kolumban Andrei</option>
-                <option>Hadar Alexandru</option>
-                <option>Nelson Mondialu</option>
+            <select name="doctori" id="dropDownDoctor" style="display: inline; margin-left: 20px;" onchange="show('vizFisaMedicala')">
             </select>
 
             <p style="display: inline;"> Interval </p>
             <input type="date">
             <input type="date">
-            <button class="cupid-green" type="button" onclick="alert('Pacient salvat!'); ">Generare</button>
+            <button class="cupid-green" type="button" onclick="getProgramariForSelectedDoctor() ">Cauta</button>
         </fieldset>
 
         <fieldset class="groupBox" id="vizIstoricPacient" style="display: none; border: none;">
             <h3>Vizualizare istoric</h3><br>
-            <table id="tabelIstoricPacient" style="display: none;">
-                <tr>
-                    <th>Data</th>
-                    <th>Diagnostic</th>
-                    <th>Reteta medicala</th>
-                </tr>
-                <tr>
-                    <td>20/12/2088</td>
-                    <td>Cancer</td>
-                    <td>No escape</td>
-                </tr>
-            </table>
+            <p style="display: inline;"> Pacient </p>
+            <select name="pacienti" id="pacienti" style="display: inline; margin-left: 20px;" onchange="show('vizFisaMedicala')">
+                <option id="dropDownPacient" value=""> </option>
+            </select>
+            <button class="cupid-green" type="button" onclick="alert('Pacient salvat!'); ">Cauta</button>
+            <!--<table id="tabelIstoricPacient" style="display: none;">-->
+                <!--<tr>-->
+                    <!--<th>Data</th>-->
+                    <!--<th>Diagnostic</th>-->
+                    <!--<th>Reteta medicala</th>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td>20/12/2088</td>-->
+                    <!--<td>Cancer</td>-->
+                    <!--<td>No escape</td>-->
+                <!--</tr>-->
+            <!--</table>-->
         </fieldset>
 
 
