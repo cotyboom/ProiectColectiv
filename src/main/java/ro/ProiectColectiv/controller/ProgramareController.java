@@ -36,14 +36,14 @@ public class ProgramareController {
         return programare;
     }
 
-    @RequestMapping(value = "/getByIdDoctor/{id}", method = RequestMethod.GET)
-    public List<Programare> getByIdDoctor(String id) {
+    @RequestMapping(value = "/getProgramareByIdDoctor/{id}", method = RequestMethod.GET)
+    public List<Programare> getByIdDoctor(@PathVariable String id) {
         List < Programare > programareList = programareService.getByIdDoctor(id);
         return programareList;
     }
 
-    @RequestMapping(value = "/getByIdPacient/{id}", method = RequestMethod.GET)
-    public List<Programare> getByIdPacient(String id) {
+    @RequestMapping(value = "/getProgramareByIdPacient/{id}", method = RequestMethod.GET)
+    public List<Programare> getByIdPacient(@PathVariable String id) {
         List < Programare > programareList = programareService.getByIdPacient(id);
         return programareList;
     }

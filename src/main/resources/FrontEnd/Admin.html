@@ -21,17 +21,37 @@
          var greutate = $('#greutate').val();
          var istoric = $('#istoric').val();
 
+        var jsonCreate = '{"nume":"' + nume + '","prenume":"' + prenume + '","cnp":"' + cnp + '","telefon":"' + telefon + '","email":"' + email +
+            '","adresa":' + adresa + '],"varsta":"' + varsta + '","inaltime":"' + inaltime + '","greutate":"' + greutate
+            + '","istoric":"' + istoric+ '"}';
+
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            url: 'http://localhost:8080/doctor/create',
+            type: 'POST',
+            data: jsonCreate,
+            dataType: 'text',
+            success: function (result) {
+                getDoctors();
+
+            }
+        });
 
         console.log(nume);
     }
 
     function dropDownDoctors(){
+        console.log("here");
         $.getJSON("http://localhost:8080/doctor/", function(result) {
             var options = $("#dropDownDoctor");
             $.each( result, function(key, val) {
-                var option = new Option(val.nume);
-                console.log(option);
-                options.append(option);
+                console.log("here");
+                var row = '<option id=D.' + val.id + ' >'+ val.nume + '<option />';
+                console.log(row);
+                options.append(row);
             });
         });
     }
@@ -40,14 +60,31 @@
          $.getJSON("http://localhost:8080/pacient/", function(result) {
              var options = $("#dropDownPacient");
              $.each( result, function(key, val) {
-                 var option = new Option(val.nume, val.nume);
-                 options.append(option);
+                 console.log("here");
+                 var row = '<option id=P.' + val.id + ' >'+ val.nume + '<option />';
+                 console.log(row);
+                 options.append(row);
 
              });
          });
      }
     function getProgramariForSelectedDoctor() {
-        console.log($("#dropDownDoctor").val());
+        var id = $("#dropDownDoctor").children(":selected").attr("id").split(".")[1];
+        var url = 'http://localhost:8080/programare/getProgramareByIdDoctor/' + id;
+        $('#programari tbody').empty();
+        $.getJSON(url, function (data) {
+            $.each(data, function (index, item) {
+                var row = '<tr>';
+                row = row + '<td class="ora" >' + item.ora + '</td>';
+                row = row + '<td class="data" >' + item.date + '</td>';
+                var urlP = 'http://localhost:8080/pacient/getById/' + item.idPacient;
+                $.getJSON(urlP, function (data) {
+                        row= row + '<td class="pacient" >' + data.nume + '</td>';
+                        row = row + '</tr>';
+                        return $('#programari tbody').append(row);
+                    });
+            });
+        });
     }
 
      function getIstoricPacient(){
@@ -56,7 +93,7 @@
 
 
     function getDoctors() {
-            $('#tableAdmin tbody').empty();
+            $('#totiDoctorii tbody').empty();
             $.getJSON('http://localhost:8080/doctor/', function (data) {
                 $.each(data, function (index, item) {
                     var row = '<tr>';
@@ -70,12 +107,10 @@
                     // row = row + '<td><button class="btn edit-item editMenu_item"><span class="glyphicon active glyphicon-pencil" aria-hidden="true"></span></button></td>';
                     row = row + '<td><button class="btn btn-danger remove-item deleteMenu_item"><span class="glyphicon active glyphicon-remove" aria-hidden="true"></span></button></td>';
                     row = row + '</tr>';
-                    $('#tableAdmin tbody:last-child').append(row);
+                    $('#totiDoctorii tbody:last-child').append(row);
                 });
             });
-
-
-        }
+    }
 
 
         function tabel(id_element) {
@@ -159,13 +194,13 @@
         <li><a href="#"  onclick="hideAll(); show('paragraf')"><b>Acasa</b></a></li>
         <li><a href="#"><b>Doctori</b></a>
             <ul>
-                <li><a href="#" onclick="hideAll(); show('totiDoctorii'); tabel('tabelTotiDoctorii');"><b>Vizualizare</b></a></li>
+                <li><a href="#" onclick="hideAll(); show('tableContainer'); tabel('totiDoctorii');"><b>Vizualizare</b></a></li>
                 <li><a href="#" onclick="hideAll(); show('crearePacient');"><b>Adaugare</b></a></li>
             </ul>
         </li>
         <li><a href="#"><b>Vizualizare</b></a>
             <ul>
-                <li><a href="#" onclick="hideAll(); show('vizProg'); "><b>Programari doctor</b></a></li>
+                <li><a href="#" onclick="hideAll(); show('vizProg') "><b>Programari doctor</b></a></li>
                 <li><a href="#" onclick="hideAll(); show('vizIstoricPacient'); "><b>Istoric pacient</b></a></li>
             </ul>
         </li>
@@ -177,8 +212,8 @@
     </fieldset>
     <br>
 
-    <div id='tableContainer'>
-        <table id='tableAdmin' class='table'>
+    <fieldset  class="groupBox" id="tableContainer" style="display: none; border: none;">
+        <table id="totiDoctorii" style="display: none;">
             <thead>
             <tr>
                 <th>Id</th>
@@ -192,7 +227,7 @@
             </thead>
             <tbody></tbody>
         </table>
-    </div>
+    </fieldset>
 
 
 
@@ -243,11 +278,7 @@
             <p style="display: inline;"> Doctor </p>
             <select name="doctori" id="dropDownDoctor" style="display: inline; margin-left: 20px;" onchange="show('vizFisaMedicala')">
             </select>
-
-            <p style="display: inline;"> Interval </p>
-            <input type="date">
-            <input type="date">
-            <button class="cupid-green" type="button" onclick="getProgramariForSelectedDoctor() ">Cauta</button>
+            <button class="cupid-green" type="button" onclick="getProgramariForSelectedDoctor();  show('vizProgramari'); tabel('programari') ">Cauta</button>
         </fieldset>
 
         <fieldset class="groupBox" id="vizIstoricPacient" style="display: none; border: none;">
@@ -270,6 +301,19 @@
                 <!--</tr>-->
             <!--</table>-->
         </fieldset>
+
+    <fieldset  class="groupBox" id="vizProgramari" style="display: none; border: none;">
+        <table id='programari' class='table'>
+            <thead>
+            <tr>
+                <th>Ora</th>
+                <th>Data</th>
+                <th>Pacient</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </fieldset>
 
 
 </fieldset>

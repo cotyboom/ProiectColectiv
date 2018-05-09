@@ -16,8 +16,6 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 public class Doctor extends Human {
-    @Column
-    private Rol rol;
 
     @Column
     private String username;
@@ -25,19 +23,11 @@ public class Doctor extends Human {
     @Column
     private String password;
 
-    @Column
-    private String specializare;
 
-    @OneToMany(targetEntity = Pacient.class, cascade = CascadeType.ALL)
-    private List<Pacient> listPacient;
-
-    public Doctor(String nume, String prenume, String CNP, String telefon, String adresa, String email, Rol rol, String username, String password, String specializare, List<Pacient> listPacient) {
+    public Doctor(String nume, String prenume, String CNP, String telefon, String adresa, String email, String username, String password) {
         super(nume, prenume, CNP, telefon, adresa, email);
-        this.rol = Rol.DOCTOR;
         this.username = username;
         this.password = password;
-        this.specializare = specializare;
-        this.listPacient = listPacient;
     }
 }
 
