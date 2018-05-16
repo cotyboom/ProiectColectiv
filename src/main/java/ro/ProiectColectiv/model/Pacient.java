@@ -21,28 +21,32 @@ public class Pacient extends Human {
     private Rol rol;
 
     @Column
-    private String username;
-
-    @Column
     private String password;
 
     @Column
-    private Integer inaltime;
+    private String varsta;
 
     @Column
-    private Integer greutate;
+    private String inaltime;
+
+    @Column
+    private String greutate;
+
+    @Column
+    private String boli;
 
     @Column
     private String idDoctor;
 
-    public Pacient(String nume, String prenume, String CNP, String telefon, String adresa, String email, Rol rol,Integer greutate, Integer inaltime, String username, String password, String idDoctor) {
+    public Pacient(String nume, String prenume, String CNP, String telefon, String adresa, String email, Rol rol,String greutate, String inaltime, String password, String idDoctor, String varsta, String boli) {
         super(nume, prenume, CNP, telefon, adresa, email);
         this.rol = Rol.PACIENT;
         this.inaltime = inaltime;
         this.greutate = greutate;
-        this.username = username;
         this.password = password;
         this.idDoctor = idDoctor;
+        this.varsta = varsta;
+        this.boli = boli;
     }
 
 }

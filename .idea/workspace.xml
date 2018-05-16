@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list id="c73549fd-7171-4e22-b31f-501901d371ad" name="azi" comment="" />
     <list default="true" id="4bcb29af-3f6a-40d6-8a08-d70b89ddafb4" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/33bc9ce0-2303-4fe3-87fe-8f84e26b6b7e/storage_v2/_src_/database/ProiectColectiv.fQ5xfw/schema/public.abK9xQ.meta" afterPath="$PROJECT_DIR$/.idea/dataSources/33bc9ce0-2303-4fe3-87fe-8f84e26b6b7e/storage_v2/_src_/database/ProiectColectiv.fQ5xfw/schema/public.abK9xQ.meta" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/FisaMedicala.java" afterPath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/FisaMedicala.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/Pacient.java" afterPath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/Pacient.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FrontEnd/Admin.html" afterPath="$PROJECT_DIR$/src/main/resources/FrontEnd/Admin.html" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html" afterPath="$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -79,8 +83,8 @@
       <file leaf-file-name="Admin.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/FrontEnd/Admin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="97" column="5" lean-forward="true" selection-start-line="83" selection-start-column="4" selection-end-line="97" selection-end-column="5" />
+            <state relative-caret-position="203">
+              <caret line="208" column="37" lean-forward="false" selection-start-line="208" selection-start-column="30" selection-end-line="208" selection-end-column="37" />
               <folding>
                 <element signature="n#style#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
@@ -98,61 +102,70 @@
                 <element signature="n#style#0;n#select#0;n#fieldset#4;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#fieldset#5;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#fieldset#6;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1526473919174" expanded="false" signature="14788:14802" ph="..." />
+                <marker date="1526485342725" expanded="false" signature="14862:14876" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdministratorController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/AdministratorController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Doctor.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Doctor.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="83" column="9" lean-forward="false" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+            <state relative-caret-position="90">
+              <caret line="146" column="26" lean-forward="false" selection-start-line="146" selection-start-column="26" selection-end-line="146" selection-end-column="26" />
               <folding>
                 <element signature="n#style#0;n#select#0;n#fieldset#0;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#fieldset#4;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#fieldset#5;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#fieldset#6;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pacient.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="fisamedicala" pinned="false" current-in-tab="false">
+        <entry file="das://table:/d1ab0936/33bc9ce0-2303-4fe3-87fe-8f84e26b6b7e/ProiectColectiv.public.fisamedicala">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FisaMedicalaController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/FisaMedicalaController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="30" column="36" lean-forward="false" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Doctor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/Doctor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FisaMedicala.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/FisaMedicala.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="30" column="23" lean-forward="false" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Pacient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/Pacient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PacientRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/repository/PacientRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PacientService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/service/PacientService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="31" column="78" lean-forward="true" selection-start-line="31" selection-start-column="78" selection-end-line="31" selection-end-column="78" />
+            <state relative-caret-position="138">
+              <caret line="40" column="145" lean-forward="false" selection-start-line="40" selection-start-column="145" selection-end-line="40" selection-end-column="145" />
               <folding />
             </state>
           </provider>
@@ -161,8 +174,18 @@
       <file leaf-file-name="PacientController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/PacientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
+            <state relative-caret-position="422">
               <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Human.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/abstractElement/Human.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-17">
+              <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -181,15 +204,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>favi</find>
-      <find>lupa</find>
-      <find>png</find>
-      <find>popp</find>
-      <find>main.js</find>
-      <find>focus</find>
-      <find>inpu</find>
-      <find>Nume</find>
-      <find>Doctor</find>
       <find>dropdownID</find>
       <find>Vizualizare</find>
       <find>dropDownDoctors</find>
@@ -211,6 +225,15 @@
       <find>getProgramariForSelectedDoctor</find>
       <find>fiseMedicale</find>
       <find>getIstoricForSelectedPacient</find>
+      <find>Nume</find>
+      <find>tratament</find>
+      <find>diagnostic</find>
+      <find>observatiidata</find>
+      <find>observatii</find>
+      <find>data</find>
+      <find>button</find>
+      <find>Creare</find>
+      <find>varsta</find>
     </findStrings>
     <replaceStrings>
       <replace>4da6ff</replace>
@@ -260,11 +283,9 @@
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/service/ProgramareService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/repository/ProgramareRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/Programare.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/FisaMedicala.java" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/repository/FisaMedicalaRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/service/FisaMedicalaService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/FisaMedicalaController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/Pacient.java" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/service/PacientService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/repository/PacientRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/PacientController.java" />
@@ -272,7 +293,9 @@
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/service/DoctorService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/DoctorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/AdministratorController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/FisaMedicala.java" />
         <option value="$PROJECT_DIR$/src/main/resources/FrontEnd/Admin.html" />
+        <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/Pacient.java" />
         <option value="$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html" />
       </list>
     </option>
@@ -621,12 +644,12 @@
       <workItem from="1525547944579" duration="1417000" />
       <workItem from="1525799929160" duration="7834000" />
       <workItem from="1525865274210" duration="14949000" />
-      <workItem from="1526469571902" duration="5434000" />
+      <workItem from="1526469571902" duration="14904000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61934000" />
+    <option name="totallyTimeSpent" value="71404000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -649,9 +672,9 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5444079" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.57730263" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37335527" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20230263" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21710527" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2987897" sideWeight="0.4786795" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -747,13 +770,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/Administrator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="30" column="36" lean-forward="false" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/repository/AsistentRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -926,13 +942,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/d1ab0936/33bc9ce0-2303-4fe3-87fe-8f84e26b6b7e/ProiectColectiv.public.pacient">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/d1ab0936/33bc9ce0-2303-4fe3-87fe-8f84e26b6b7e/ProiectColectiv.public.programare">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -944,22 +953,6 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/abstractElement/Human.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/Doctor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1019,37 +1012,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/FisaMedicala.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-64">
-          <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/FisaMedicalaController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="44" column="44" lean-forward="false" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/d1ab0936/33bc9ce0-2303-4fe3-87fe-8f84e26b6b7e/ProiectColectiv.public.fisamedicala">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/Pacient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/repository/PacientRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1066,21 +1028,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/PacientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/service/DoctorService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="397">
           <caret line="46" column="5" lean-forward="false" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
           <folding>
-            <element signature="e#1044#1045#0" expanded="true" />
-            <element signature="e#1096#1097#0" expanded="true" />
+            <element signature="e#1044#1045#0" expanded="false" />
+            <element signature="e#1096#1097#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1104,10 +1058,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/AdministratorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/FisaMedicalaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="30" column="36" lean-forward="false" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/Doctor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/FisaMedicala.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="30" column="23" lean-forward="false" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/d1ab0936/33bc9ce0-2303-4fe3-87fe-8f84e26b6b7e/ProiectColectiv.public.pacient">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/d1ab0936/33bc9ce0-2303-4fe3-87fe-8f84e26b6b7e/ProiectColectiv.public.fisa">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/d1ab0936/33bc9ce0-2303-4fe3-87fe-8f84e26b6b7e/ProiectColectiv.public.fisamedicala">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/abstractElement/Human.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/FrontEnd/Admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="97" column="5" lean-forward="true" selection-start-line="83" selection-start-column="4" selection-end-line="97" selection-end-column="5" />
+        <state relative-caret-position="203">
+          <caret line="208" column="37" lean-forward="false" selection-start-line="208" selection-start-column="30" selection-end-line="208" selection-end-column="37" />
           <folding>
             <element signature="n#style#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
@@ -1125,28 +1140,36 @@
             <element signature="n#style#0;n#select#0;n#fieldset#4;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#fieldset#5;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#fieldset#6;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1526473919174" expanded="false" signature="14788:14802" ph="..." />
+            <marker date="1526485342725" expanded="false" signature="14862:14876" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/AdministratorController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/PacientController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="422">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="83" column="9" lean-forward="false" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+        <state relative-caret-position="90">
+          <caret line="146" column="26" lean-forward="false" selection-start-line="146" selection-start-column="26" selection-end-line="146" selection-end-column="26" />
           <folding>
             <element signature="n#style#0;n#select#0;n#fieldset#0;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#fieldset#4;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#fieldset#5;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#fieldset#6;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/Pacient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="40" column="145" lean-forward="false" selection-start-line="40" selection-start-column="145" selection-end-line="40" selection-end-column="145" />
+          <folding />
         </state>
       </provider>
     </entry>

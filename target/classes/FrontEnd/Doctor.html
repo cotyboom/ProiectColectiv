@@ -75,17 +75,97 @@
             $.getJSON(url, function (data) {
                 $.each(data, function (index, item) {
                     var row = '<tr>';
+                    row = row + '<td class="data" >' + item.data + '</td>';
                     row = row + '<td class="diagnostic" >' + item.diagnostic + '</td>';
                     row = row + '<td class="tratament" >' + item.tratament + '</td>';
-                    row = row + '<td class="observatii" >' + item.observarii + '</td>';
+                    row = row + '<td class="observatii" >' + item.observatii + '</td>';
                     $('#tabelFisaMedicala tbody').append(row);
                 });
             });
         }
 
+        function clearFieldsFisa() {
+            $('#numeP').val('');
+            $('#prenumeP').val('');
+            $('#data').val('');
+            $('#cnpP').val('');
+            $('#diagnostic').val('');
+            $('#tratament').val('');
+            $('#observatii').val('');
+        }
+
         $(document).ready(
             function (){
                 dropDownPacientForDoctor()
+
+                $(document).on('click', '#SalveazaF', function ()
+                {
+
+                    var dataF = $('#data').val();
+                    var cnp = $('#cnpP').val();
+                    var diagnostic = $('#diagnostic').val();
+                    var tratament = $('#tratament').val();
+                    var observatii = $('#observatii').val();
+                    clearFieldsFisa();
+                    var idP;
+                    console.log("CNP" + cnp);
+                    $.getJSON("http://localhost:8080/pacient/", function(result) {
+                        $.each(result, function (index, item) {
+                            if(item.cnp === cnp){
+                                var jsonCreate = '{"idPacient":"' + item.id + '","diagnostic":"' + diagnostic + '","tratament":"' + tratament + '","observatii":"' +  observatii + '","data":"' + dataF+ '"}';
+                                console.log(jsonCreate);
+                                $.ajax({
+                                    headers: {
+                                        'Accept': 'application/json',
+                                        'Content-Type': 'application/json'
+                                    },
+                                    url: 'http://localhost:8080/fisaMedicala/create',
+                                    type: 'POST',
+                                    data: jsonCreate,
+                                    dataType: 'text',
+                                    success: function (result) {
+                                        alert("S-a salvat");
+                                    }
+                                });
+                            }
+                        });
+                    });
+
+                });
+
+                $(document).on('click', '#SalveazaPacient', function ()
+                {
+                    var idD = 1;
+                    var nume = $('#nume').val();
+                    var prenume = $('#prenume').val();
+                    var cnp = $('#cnp').val();
+                    var telefon = $('#telefon').val();
+                    var email = $('#email').val();
+                    var adresa = $('#adresa').val();
+                    var greutate = $('#greutate').val();
+                    var inaltime = $('#inaltime').val();
+                    var varsta = $('#varsta').val();
+                    var parola = $('#parola').val();
+                    var boli = $('#boli').val();
+                    clearFieldsFisa();
+
+                    var jsonCreate = '{"nume":"' + nume + '","idDoctor":"' + idD +'","prenume":"' + prenume + '","cnp":"' + cnp + '","telefon":"' + telefon + '","adresa":"' + adresa + '","email":"' + email + '","rol":"' + 'EMPTY' + '","greutate":"' + greutate + '","inaltime":"' + inaltime + '","varsta":"' + varsta + '","password":"'+ parola +'","boli":"'+boli+ '"}';
+
+                    console.log(jsonCreate);
+                    $.ajax({
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        url: 'http://localhost:8080/pacient/create',
+                        type: 'POST',
+                        data: jsonCreate,
+                        dataType: 'text',
+                        success: function (result) {
+                            alert(result);
+                        }
+                    });
+                });
             });
 
     </script>
@@ -107,12 +187,7 @@
         <li><a href="#"><b>Fisa medicala</b></a>
             <ul>
                 <li ><a href="#" onclick="hideAll(); show('vizPacient'); "><b>Vizualizare</b></a></li>
-                <li><a href="#"><b>Creare</b></a>
-                    <ul>
-                        <li><a href="#" onclick="hideAll(); show('creareFisa');"><b>Fisa medicala</b></a></li>
-                        <li><a href="#" onclick="hideAll(); show('creareReteta');"><b>Reteta</b></a></li>
-                    </ul>
-                </li>
+                <li><a href="#" onclick="hideAll(); show('creareFisa');"><b>Creare</b></a></li>
             </ul>
         </li>
         <li><a href="#" onClick="hideAll(); show('crearePacient')"><b>Adaugare pacient</b></a>
@@ -131,33 +206,22 @@
         <fieldset class="groupBox" id="creareFisa" style="border-style: groove; display: none" >
             <legend>Creare fisa medicala</legend>
             <form>
-                - Nume medic:
-                <input type="text" name="numeM"><br><br>
-                - Prenume medic:
-                <input type="text" name="prenumeM"><br><br>
                 - Data intocmirii fisei medicale:
-                <input type="date" name="data"><br><br>
+                <input type="text" id="data"><br><br>
                 - Nume pacient:
-                <input type="text" name="numeP"><br><br>
+                <input type="text" id="numeP"><br><br>
                 - Prenume pacient:
-                <input type="text" name="prenumeP"><br><br>
+                <input type="text" id="prenumeP"><br><br>
+                - CNP pacient:
+                <input type="text" id="cnpP"><br><br>
+                - Diagnistic :
+                <input type="text" id="diagnostic"><br><br>
+                - Tratament :
+                <input type="text" id="tratament"><br><br>
+                - Observatii :
+                <input type="text" id="observatii"><br><br>
             </form>
-        </fieldset>
-
-        <fieldset class="groupBox" id="creareReteta" style="border-style: groove; display: none" >
-            <legend>Creare reteta medicala</legend>
-            <form>
-                - Nume medic:
-                <input type="text" name="numeM"><br><br>
-                - Prenume medic:
-                <input type="text" name="prenumeM"><br><br>
-                - Data intocmirii retetei medicale:
-                <input type="date" name="data"><br><br>
-                - Nume pacient:
-                <input type="text" name="numeP"><br><br>
-                - Prenume pacient:
-                <input type="text" name="prenumeP"><br><br>
-            </form>
+            <button id="SalveazaF" class="cupid-green" type="button" >Salveaza</button>
         </fieldset>
 
         <fieldset class="groupBox" id="paragraf">
@@ -173,47 +237,46 @@
             <form id = "crearePacientt">
                 <label>
                     <span>Nume:</span>
-                    <input type="text" name="nume">
+                    <input type="text" id="nume">
 
                     <span></span>Prenume:
-                    <input type="text" name="prenume">
+                    <input type="text" id="prenume">
                 </label>
                 <label>
                     <span>CNP:</span>
-                    <input type="text" name="cnp">
+                    <input type="text" id="cnp">
 
                     <span></span>Telefon:
-                    <input type="text" name="telefon">
+                    <input type="text" id="telefon">
                 </label>
                 <label>
                     <span>Email:</span>
-                    <input type="text" name="email">
+                    <input type="text" id="email">
 
                     <span></span>Adresa:
-                    <input type="text" name="adresa">
+                    <input type="text" id="adresa">
                 </label>
                 <label>
                     <span>Varsta:</span>
-                    <input type="text" name="varsta">
+                    <input type="text" id="varsta">
 
                     <span></span>Inaltime:
-                    <input type="text" name="varsta">
+                    <input type="text" id="inaltime">
                 </label>
                 <label>
                     <span>Greutate:</span>
-                    <input type="text" name="varsta">
+                    <input type="text" id="greutate">
                 </label>
                 <label>
-                    <span>Telefon2:</span>
-                    <input type="text" name="telPC">
+                    <span>Boli:</span>
+                    <input type="text" id="boli">
                 </label>
                 <label>
-                    <span>Istoric:</span>
-                    <textarea rows="5" cols="49" style="resize:none">
-                    </textarea>
+                    <span>Parola:</span>
+                    <input type="text" id="parola">
                 </label><br><br><br>
             </form>
-            <button class="cupid-green" type="button" onclick="alert('Pacient salvat!'); hideAll(); show('mesaj')">Salveaza</button>
+            <button class="cupid-green" id = "SalveazaPacient" type="button" onclick=" show('mesaj')">Salveaza</button>
         </fieldset>
 
         <fieldset  class="groupBox" id="vizProgramari" style="display: none; border: none;">
@@ -233,6 +296,7 @@
             <table id='tabelFisaMedicala' class='table'>
                 <thead>
                 <tr>
+                    <th>Data</th>
                     <th>Diagnostic</th>
                     <th>Tratament</th>
                     <th>Observatii</th>

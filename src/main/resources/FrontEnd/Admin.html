@@ -89,6 +89,7 @@
         $.getJSON(url, function (data) {
             $.each(data, function (index, item) {
                 var row = '<tr>';
+                row = row + '<td class="data" >' + item.data + '</td>';
                 row = row + '<td class="diagnostic" >' + item.diagnostic + '</td>';
                 row = row + '<td class="tratament" >' + item.tratament + '</td>';
                 row = row + '<td class="observatii" >' + item.observarii + '</td>';
@@ -177,6 +178,17 @@
                 // DO NOTHING
             }
         }
+
+    function clearFields() {
+        $('#nume').val('');
+        $('#prenume').val('');
+        $('#cnp').val('');
+        $('#telefon').val('');
+        $('#adresa').val('');
+        $('#email').val('');
+        $('#username').val('');
+        $('#password').val('');
+    }
         $(document).ready(
             function ()
             {
@@ -193,11 +205,11 @@
                     var telefon = $('#telefon').val();
                     var adresa = $('#adresa').val();
                     var email = $('#email').val();
+
                     var rol = 'EMPTY';
                     var username = $('#username').val();
                     var password = $('#password').val();
-                    var specializare = $('#specializare').val();
-
+                    clearFields();
                     var jsonCreate = '{"nume":"' + nume + '","prenume":"' + prenume + '","cnp":"' + cnp + '","telefon":"' + telefon + '","adresa":"' + adresa + '","email":"' + email + '","rol":"' + rol + '","username":"' + username + '","password":"'+ password +'","specializare":"'+specializare+ '"}';
 
                     console.log(jsonCreate);
@@ -219,6 +231,7 @@
                         }
                     });
                 });
+
 
                 $(document).on('click', '.deleteMenu_item', function () {
                     var iddata = ($(this).parent().parent()).find('.dataid').html();
@@ -284,7 +297,6 @@
                 <th>Telefon</th>
                 <th>Adresa</th>
                 <th>Email</th>
-                <th>Specializare</th>
             </tr>
             </thead>
             <tbody></tbody>
@@ -318,16 +330,11 @@
                 <input id="email" type="text" name="adresa">
             </label>
             <label>
-                <span>Rol:</span>
-                <input id = "rol" type="text" name="rol">
-
                 <span></span>Username:
                 <input id = "username" type="text" name="username">
 
                 <span></span>Password:
                 <input id = "password" type="text" name="password">
-                <span>Specializare</span>
-                <input id="specializare" type="text" name="specializa">
             </label>
             <!--<label>-->
             <!--<span>Istoric:</span>-->
@@ -382,6 +389,7 @@
         <table id='tabelFisaMedicala' class='table'>
             <thead>
             <tr>
+                <th>Data</th>
                 <th>Diagnostic</th>
                 <th>Tratament</th>
                 <th>Observatii</th>
