@@ -7,15 +7,6 @@
     <list id="c73549fd-7171-4e22-b31f-501901d371ad" name="azi" comment="" />
     <list default="true" id="4bcb29af-3f6a-40d6-8a08-d70b89ddafb4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/AdministratorController.java" afterPath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/AdministratorController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/DoctorController.java" afterPath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/DoctorController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/PacientController.java" afterPath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/PacientController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/Pacient.java" afterPath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/Pacient.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/repository/DoctorRepository.java" afterPath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/repository/DoctorRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/repository/PacientRepository.java" afterPath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/repository/PacientRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/service/DoctorService.java" afterPath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/service/DoctorService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/service/PacientService.java" afterPath="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/service/PacientService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FrontEnd/Admin.html" afterPath="$PROJECT_DIR$/src/main/resources/FrontEnd/Admin.html" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html" afterPath="$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -85,11 +76,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Admin.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Admin.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/FrontEnd/Admin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="291" column="15" lean-forward="false" selection-start-line="291" selection-start-column="15" selection-end-line="291" selection-end-column="15" />
+            <state relative-caret-position="319">
+              <caret line="97" column="5" lean-forward="true" selection-start-line="83" selection-start-column="4" selection-end-line="97" selection-end-column="5" />
               <folding>
                 <element signature="n#style#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
@@ -113,42 +104,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DoctorRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/repository/DoctorRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DoctorService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/service/DoctorService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="46" column="5" lean-forward="false" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-              <folding>
-                <element signature="e#1044#1045#0" expanded="true" />
-                <element signature="e#1096#1097#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DoctorController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/DoctorController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="58" column="5" lean-forward="false" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-              <folding>
-                <element signature="e#1519#1520#0" expanded="true" />
-                <element signature="e#1563#1564#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AdministratorController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/AdministratorController.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -159,14 +114,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Doctor.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Doctor.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="71" column="42" lean-forward="true" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
+            <state relative-caret-position="366">
+              <caret line="83" column="9" lean-forward="false" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
               <folding>
                 <element signature="n#style#0;n#select#0;n#fieldset#0;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#fieldset#5;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#fieldset#6;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -225,10 +181,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>vizu</find>
-      <find>e</find>
-      <find>crearefisa</find>
-      <find>doctori</find>
       <find>favi</find>
       <find>lupa</find>
       <find>png</find>
@@ -241,7 +193,6 @@
       <find>dropdownID</find>
       <find>Vizualizare</find>
       <find>dropDownDoctors</find>
-      <find>getProgramariForSelectedDoctor</find>
       <find>tabelTotiDoctorii</find>
       <find>tableAdmin</find>
       <find>getProgramari</find>
@@ -253,8 +204,13 @@
       <find>Programari</find>
       <find>dropDownPacient</find>
       <find>&lt;select name=&quot;pacienti&quot; id=&quot;dropDownPacient&quot; style=&quot;display: inline; margin-left: 20px;&quot; onchange=&quot;show('vizFisaMedicala')&quot;&gt;</find>
-      <find>vizPacient</find>
       <find>vizFisaMedicala</find>
+      <find>getDoc</find>
+      <find>vizPacient</find>
+      <find>vizProgramari</find>
+      <find>getProgramariForSelectedDoctor</find>
+      <find>fiseMedicale</find>
+      <find>getIstoricForSelectedPacient</find>
     </findStrings>
     <replaceStrings>
       <replace>4da6ff</replace>
@@ -308,7 +264,6 @@
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/repository/FisaMedicalaRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/service/FisaMedicalaService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/FisaMedicalaController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/model/Pacient.java" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/service/PacientService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/repository/PacientRepository.java" />
@@ -318,6 +273,7 @@
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/DoctorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/AdministratorController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/FrontEnd/Admin.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html" />
       </list>
     </option>
   </component>
@@ -665,12 +621,12 @@
       <workItem from="1525547944579" duration="1417000" />
       <workItem from="1525799929160" duration="7834000" />
       <workItem from="1525865274210" duration="14949000" />
-      <workItem from="1526469571902" duration="4435000" />
+      <workItem from="1526469571902" duration="5434000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60935000" />
+    <option name="totallyTimeSpent" value="61934000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -693,9 +649,9 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5444079" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43914473" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.57730263" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48355263" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20230263" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2987897" sideWeight="0.4786795" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1118,25 +1074,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="71" column="42" lean-forward="true" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#select#0;n#fieldset#0;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#fieldset#5;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/repository/DoctorRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/service/DoctorService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="397">
@@ -1159,18 +1096,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/AdministratorController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/repository/DoctorRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="153">
+          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/FrontEnd/Admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="291" column="15" lean-forward="false" selection-start-line="291" selection-start-column="15" selection-end-line="291" selection-end-column="15" />
+        <state relative-caret-position="319">
+          <caret line="97" column="5" lean-forward="true" selection-start-line="83" selection-start-column="4" selection-end-line="97" selection-end-column="5" />
           <folding>
             <element signature="n#style#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
@@ -1189,6 +1126,26 @@
             <element signature="n#style#0;n#fieldset#5;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#fieldset#6;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
             <marker date="1526473919174" expanded="false" signature="14788:14802" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ro/ProiectColectiv/controller/AdministratorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/FrontEnd/Doctor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="83" column="9" lean-forward="false" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#fieldset#0;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#fieldset#5;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#fieldset#6;n#div#0;n#fieldset#0;n#div#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

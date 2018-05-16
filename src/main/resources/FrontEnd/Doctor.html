@@ -67,6 +67,22 @@
             });
         }
 
+        function getIstoricForSelectedPacient() {
+            console.log($("#dropDownPacient").children(":selected"));
+            var id = $("#dropDownPacient").children(":selected").attr("id").split(".")[1];
+            var url = 'http://localhost:8080/fisaMedicala/getByIdPacient/' + id;
+            $('#tabelFisaMedicala tbody').empty();
+            $.getJSON(url, function (data) {
+                $.each(data, function (index, item) {
+                    var row = '<tr>';
+                    row = row + '<td class="diagnostic" >' + item.diagnostic + '</td>';
+                    row = row + '<td class="tratament" >' + item.tratament + '</td>';
+                    row = row + '<td class="observatii" >' + item.observarii + '</td>';
+                    $('#tabelFisaMedicala tbody').append(row);
+                });
+            });
+        }
+
         $(document).ready(
             function (){
                 dropDownPacientForDoctor()
@@ -108,6 +124,7 @@
             <p style="display: inline;"> Pacient </p>
             <select name="pacienti" id="dropDownPacient" style="display: inline; margin-left: 20px;" onchange="show('vizFisaMedicala')">
             </select>
+            <button class="cupid-green" type="button" onclick="getIstoricForSelectedPacient();  show('fiseMedicale'); tabel('tabelFisaMedicala')  ">Cauta</button>
 
         </fieldset>
 
@@ -206,6 +223,19 @@
                     <th>Ora</th>
                     <th>Data</th>
                     <th>Pacient</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </fieldset>
+
+        <fieldset  class="groupBox" id="fiseMedicale" style="display: none; border: none;">
+            <table id='tabelFisaMedicala' class='table'>
+                <thead>
+                <tr>
+                    <th>Diagnostic</th>
+                    <th>Tratament</th>
+                    <th>Observatii</th>
                 </tr>
                 </thead>
                 <tbody></tbody>
