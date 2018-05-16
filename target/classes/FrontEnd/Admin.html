@@ -79,11 +79,10 @@
                 row = row + '<td class="data" >' + item.date + '</td>';
                 var urlP = 'http://localhost:8080/pacient/getById/' + item.idPacient;
                 $.getJSON(urlP, function (data) {
-                        row= row + '<td class="pacient" >' + data.nume + '</td>';
+                        row= row + '<td class="pacient" >' + data.nume + " " + data.prenume + '</td>';
                         row = row + '</tr>';
                         return $('#programari tbody').append(row);
                     });
-
             });
         });
     }
@@ -176,6 +175,42 @@
                 dropDownDoctors();
                 dropDownPacient();
 
+                $(document).on('click', '#Salveaza', function ()
+                {
+
+                    var nume = $('#nume').val();
+                    var prenume = $('#prenume').val();
+                    var cnp = $('#cnp').val();
+                    var telefon = $('#telefon').val();
+                    var adresa = $('#adresa').val();
+                    var email = $('#email').val();
+                    var rol = 'EMPTY';
+                    var username = $('#username').val();
+                    var password = $('#password').val();
+                    var specializare = $('#specializare').val();
+
+                    var jsonCreate = '{"nume":"' + nume + '","prenume":"' + prenume + '","cnp":"' + cnp + '","telefon":"' + telefon + '","adresa":"' + adresa + '","email":"' + email + '","rol":"' + rol + '","username":"' + username + '","password":"'+ password +'","specializare":"'+specializare+ '"}';
+
+                    console.log(jsonCreate);
+                    $.ajax({
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        url: 'http://localhost:8080/doctor/create',
+                        type: 'POST',
+                        data: jsonCreate,
+                        dataType: 'text',
+                        success: function (result) {
+                            //listSpareParts();
+                            //getElements(stat);
+                            getDoctors();
+                            alert(result);
+                            //console.log(result+"***********");
+                        }
+                    });
+                });
+
             }
         );
     </script>
@@ -232,48 +267,50 @@
 
 
 
-        <fieldset class="groupBox" id="crearePacient" style="border-style: groove; display: none">
-            <h3>Adaugare doctor</h3><br>
-            <form id = "crearePacientt">
-                <label>
-                    <span>Nume:</span>
-                    <input id = "nume" type="text" name="nume">
+    <fieldset class="groupBox" id="crearePacient" style="border-style: groove; display: none">
+        <h3>Adaugare doctor</h3><br>
+        <form id = "crearePacientt">
+            <label>
+                <span>Nume:</span>
+                <input id = "nume" type="text" name="nume">
 
-                    <span></span>Prenume:
-                    <input id = "prenume" type="text" name="prenume">
-                </label>
-                <label>
-                    <span>CNP:</span>
-                    <input id = "cnp" type="text" name="cnp">
+                <span></span>Prenume:
+                <input id = "prenume" type="text" name="prenume">
+            </label>
+            <label>
+                <span>CNP:</span>
+                <input id = "cnp" type="" name="cnp">
 
-                    <span></span>Telefon:
-                    <input id = "telefon" type="text" name="telefon">
-                </label>
-                <label>
-                    <span>Email:</span>
-                    <input id="email" type="text" name="email">
+                <span></span>Telefon:
+                <input id = "telefon" type="" name="telefon">
+            </label>
+            <label>
+                <span>Adresa:</span>
+                <input id="adresa" type="text" name="email">
 
-                    <span></span>Adresa:
-                    <input id="adresa" type="text" name="adresa">
-                </label>
-                <label>
-                    <span>Varsta:</span>
-                    <input id = "varsta" type="text" name="varsta">
+                <span></span>Email:
+                <input id="email" type="text" name="adresa">
+            </label>
+            <label>
+                <span>Rol:</span>
+                <input id = "rol" type="text" name="rol">
 
-                    <span></span>Inaltime:
-                    <input id = "inaltime" type="text" name="varsta">
+                <span></span>Username:
+                <input id = "username" type="text" name="username">
 
-                    <span></span>Greutate:
-                    <input id = "greutate" type="text" name="varsta">
-                </label>
-                <label>
-                    <span>Istoric:</span>
-                    <textarea id = "istoric " rows="5" cols="49" style="resize:none">
-                    </textarea>
-                </label><br><br><br>
-            </form>
-            <button class="cupid-green" type="button" onclick="salveazaPacient() ; alert('Pacient salvat!'); ">Salveaza</button>
-        </fieldset>
+                <span></span>Password:
+                <input id = "password" type="text" name="password">
+                <span>Specializare</span>
+                <input id="specializare" type="text" name="specializa">
+            </label>
+            <!--<label>-->
+            <!--<span>Istoric:</span>-->
+            <!--<textarea id = "istoric " rows="5" cols="49" style="resize:none">-->
+            <!--</textarea>-->
+            <!--</label><br><br><br>-->
+        </form>
+        <button id="Salveaza" class="cupid-green" type="button" >Salveaza</button>
+    </fieldset>
 
         <fieldset class="groupBox" id="vizProg" style="display: none; border: none;">
             <p style="display: inline;"> Doctor </p>
