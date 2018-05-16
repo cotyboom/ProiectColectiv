@@ -52,4 +52,10 @@ public class DoctorController {
         return doctor;
     }
 
+    @RequestMapping(value = "/deleteById/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable Long id)
+    {
+        doctorService.deleteById(id);
+    }
+
 }

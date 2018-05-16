@@ -5,6 +5,74 @@
     <title>Doctor</title>
     <link rel="stylesheet" type="text/css" href="/FrontEnd/personalizedStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script language="JavaScript" type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function tabel(id_element) {
+            var x = document.getElementById(id_element);
+            if (x.style.display != "none") {
+                hide(id_element);
+            } else {
+                x.style.display = "block";
+                x.style.display = "inline";
+            }
+        }
+
+        function hide(id_element)
+        {
+            var x = document.getElementById(id_element);
+            document.getElementsByTagName()
+            x.style.display = "none";
+        }
+
+        function hideAll()
+        {
+            var elements = document.getElementsByClassName("groupBox");
+            for(var i=0; i<elements.length; i++) {
+                elements[i].style.display = "none";
+            }
+        }
+
+        function show(id_element)
+        {
+            var x = document.getElementById(id_element);
+            x.style.display ="block";
+        }
+
+        function getProgramariForSelectedDoctor() {
+            var id = 1;
+            var url = 'http://localhost:8080/programare/getProgramareByIdDoctor/' + id;
+            $('#programari tbody').empty();
+            $.getJSON(url, function (data) {
+                $.each(data, function (index, item) {
+                    var row = '<tr>';
+                    row = row + '<td class="ora" >' + item.ora + '</td>';
+                    row = row + '<td class="data" >' + item.date + '</td>';
+                    var urlP = 'http://localhost:8080/pacient/getById/' + item.idPacient;
+                    $.getJSON(urlP, function (data) {
+                        row= row + '<td class="pacient" >' + data.nume + " " + data.prenume + '</td>';
+                        row = row + '</tr>';
+                        return $('#programari tbody').append(row);
+                    });
+                });
+            });
+        }
+
+        function dropDownPacientForDoctor(){
+            $.getJSON("http://localhost:8080/pacient/", function(result) {
+                var options = $("#dropDownPacient");
+                $.each( result, function(key, val) {
+                    var row = '<option id=P.' + val.id + ' >'+ val.nume + " " + val.prenume + '<option />';
+                    options.append(row);
+                });
+            });
+        }
+
+        $(document).ready(
+            function (){
+                dropDownPacientForDoctor()
+            });
+
+    </script>
 </head>
 <div class="container">
 <fieldset style="background-color: white; border: none; height: 1100px">
@@ -19,10 +87,10 @@
 
     <ul class="main-navigation" >
         <li><a href="#" onclick="hideAll();  show('paragraf')"><b>Acasa</b></a></li>
-        <li><a href="#" onclick="hideAll(); show('Programari'); show('tabelViz');"><b>Programari</b></a></li>
+        <li><a href="#" onclick="hideAll(); getProgramariForSelectedDoctor();  show('vizProgramari'); tabel('programari')"><b>Programari</b></a></li>
         <li><a href="#"><b>Fisa medicala</b></a>
             <ul>
-                <li ><a href="#" onclick="hideAll(); show('vizPacient');"><b>Vizualizare</b></a></li>
+                <li ><a href="#" onclick="hideAll(); show('vizPacient'); "><b>Vizualizare</b></a></li>
                 <li><a href="#"><b>Creare</b></a>
                     <ul>
                         <li><a href="#" onclick="hideAll(); show('creareFisa');"><b>Fisa medicala</b></a></li>
@@ -35,61 +103,11 @@
         <li style="float: right"><a href="/login"><b>Logout</b></a></li>
     </ul>
     <div style="margin-top: 40px">
-        <fieldset class="groupBox" id="Programari" style="border: none">
-            <div>
-                <table id="tabelViz" style="display: none; margin-top: 20px">
-                    <tr>
-                        <th>Data</th>
-                        <th>Vizualizare programare</th>
-                    </tr>
-                    <tr>
-                        <td>21.09.2018</td>
-                        <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
-                    </tr>
-                    <tr>
-                        <td>20.05.2018</td>
-                        <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
-                    </tr>
-                </table>
-
-                <table id="tabelProg" style="display:none;">
-                    <tr>
-                        <th>Ora</th>
-                        <th>Pacient</th>
-                        <th>Consultatie</th>
-                    </tr>
-                    <tr>
-                        <td>14:05</td>
-                        <td>Kolumban Andrei</td>
-                        <td>asdasd</td>
-                    </tr>
-                    <tr>
-                        <td>05:00</td>
-                        <td>Hadar Alexandru</td>
-                        <td>asdasdd</td>
-                    </tr>
-                </table>
-            </div>
-        </fieldset>
 
         <fieldset class="groupBox" id="vizPacient" style="display: none; border: none;">
             <p style="display: inline;"> Pacient </p>
-            <select name="pacienti" style="display: inline; margin-left: 20px;" onchange="show('vizFisaMedicala')">
-                <option value=""> </option>
-                <option onclick="show('vizPacient')">Kolumban Andrei</option>
-                <option>Hadar Alexandru</option>
-                <option>Nelson Mondialu</option>
+            <select name="pacienti" id="dropDownPacient" style="display: inline; margin-left: 20px;" onchange="show('vizFisaMedicala')">
             </select>
-
-            <table id="vizFisaMedicala" style="display: none">
-                <tr>
-                    <th>Nume medic</th>
-                    <th>Prenume medic</th>
-                    <th>Data</th>
-                    <th>Nume pacient</th>
-                    <th>Prenume pacient</th>
-                </tr>
-            </table>
 
         </fieldset>
 
@@ -181,50 +199,19 @@
             <button class="cupid-green" type="button" onclick="alert('Pacient salvat!'); hideAll(); show('mesaj')">Salveaza</button>
         </fieldset>
 
-        <script>
-        function tabel(id_element) {
-            var x = document.getElementById(id_element);
-            if (x.style.display != "none") {
-                hide(id_element);
-            } else {
-                x.style.display = "block";
-                x.style.display = "inline";
-            }
-        }
+        <fieldset  class="groupBox" id="vizProgramari" style="display: none; border: none;">
+            <table id='programari' class='table'>
+                <thead>
+                <tr>
+                    <th>Ora</th>
+                    <th>Data</th>
+                    <th>Pacient</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </fieldset>
 
-        function hide(id_element)
-        {
-            var x = document.getElementById(id_element);
-            document.getElementsByTagName()
-            x.style.display = "none";
-        }
-
-        function hideAll()
-        {
-            var elements = document.getElementsByClassName("groupBox");
-            for(var i=0; i<elements.length; i++) {
-                elements[i].style.display = "none";
-            }
-        }
-
-        function show(id_element)
-        {
-            var x = document.getElementById(id_element);
-            x.style.display ="block";
-        }
-
-        // $.ajax ({
-        //     type: "GET",
-        //     url: "localhost:8080/doctor/",
-        //     dataType: "json",
-        //     succes: function(response){
-        //         var doctorList = $('#doctor')
-        //         for(var i=0; i<response;i++)
-        //
-        //     }
-        // });
-
-    </script>
 
     </div>
 </fieldset>

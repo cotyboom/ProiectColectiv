@@ -40,4 +40,9 @@ public class DoctorService {
 
         return doctor;
     }
+
+    public void deleteById(Long id)
+    {
+        doctorRepository.deleteFirstById(id);
+    }
 }

@@ -28,4 +28,6 @@ public class PacientService
     public void createPacient(Pacient pacient) {pacientRepository.save(pacient);}
 
     public Pacient getById(Long id) {return pacientRepository.findById(id);}
+
+    public List<Pacient> getByIdDoctor(String id) {return pacientRepository.findByIdDoctor(id);}
 }

@@ -3,6 +3,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ro.ProiectColectiv.model.Administrator;
 import ro.ProiectColectiv.service.AdministratorService;
+import ro.ProiectColectiv.service.DoctorService;
 
 
 import java.util.List;
@@ -11,11 +12,13 @@ import java.util.List;
 public class AdministratorController {
 
     private AdministratorService administratorService;
+    private DoctorService doctorService;
 
     @Autowired
-    public AdministratorController(AdministratorService administratorService)
+    public AdministratorController(AdministratorService administratorService, DoctorService doctorService)
     {
         this.administratorService = administratorService;
+        this. doctorService = doctorService;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)

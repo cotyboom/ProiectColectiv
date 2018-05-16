@@ -30,11 +30,19 @@ public class PacientController {
     public void create(@RequestBody Pacient pacient) {pacientService.createPacient(pacient);}
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET)
-
     public Pacient getById(@PathVariable Long id)
     {
         Pacient pacient = pacientService.getById(id);
 
         return pacient;
     }
+
+    @RequestMapping(value = "/getByIdDoctor/{id}", method = RequestMethod.GET)
+    public List<Pacient> getById(@PathVariable String id)
+    {
+        List<Pacient> pacient = pacientService.getByIdDoctor(id);
+
+        return pacient;
+    }
+
 }
