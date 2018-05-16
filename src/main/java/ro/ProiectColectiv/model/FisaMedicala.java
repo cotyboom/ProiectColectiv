@@ -27,10 +27,14 @@ public class FisaMedicala {
     @Column
     private String observatii;
 
-    public FisaMedicala(String tratament, String diagnostic, String observatii) {
+    @Column
+    private String idPacient;
+
+    public FisaMedicala(String tratament, String diagnostic, String observatii, String idPacient) {
         this.tratament = tratament;
         this.diagnostic = diagnostic;
         this.observatii = observatii;
+        this.idPacient = idPacient;
     }
 
 }

@@ -10,4 +10,5 @@ public interface FisaMedicalaRepository extends JpaRepository<FisaMedicala, Long
     FisaMedicala findById(Long id);
     List<FisaMedicala> findByTratament(String tratament);
     List<FisaMedicala> findByDiagnostic(String diagnostic);
+    List<FisaMedicala> findByIdPacient(String id);
 }

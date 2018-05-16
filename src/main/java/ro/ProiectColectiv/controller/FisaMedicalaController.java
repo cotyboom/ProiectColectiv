@@ -35,11 +35,18 @@ public class FisaMedicalaController {
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET)
-
     public FisaMedicala getById(@PathVariable Long id)
     {
         FisaMedicala fisaMedicala = fisaMedicalaService.getById(id);
 
         return fisaMedicala;
+    }
+
+    @RequestMapping(value = "/getByIdPacient/{id}", method = RequestMethod.GET)
+    public List<FisaMedicala> getByIdPacient(@PathVariable String id)
+    {
+        List<FisaMedicala> fiseMedicale = fisaMedicalaService.getByIdPacient(id);
+
+        return fiseMedicale;
     }
 }
