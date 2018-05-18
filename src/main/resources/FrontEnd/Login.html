@@ -21,7 +21,80 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="/FrontEnd/js/login.js"></script>
+    <script>
+        var username;
+        var password;
+        var url;
+
+
+        function trimming() {
+            var str = document.URL;
+            var res = str.substr(33, str.indexOf('&'));
+            console.log(res);
+            //document.getElementById("demo").innerHTML = res;
+        }
+
+        function getUserName(input){
+            return input.split("username=")[1].split("&")[0];
+        }
+
+        function getPassword(input){
+            return input.split("password=")[1];
+        }
+
+
+
+
+        $(document).ready(function ()
+        {
+            $(document).on('click', '.classToClick', function ()
+            {
+
+                var username = $('#username').val();
+                var password = $('#password').val();
+
+                $.getJSON('http://localhost:8080/doctor/', function (data) {
+                    $.each(data, function (index, item) {
+                       if(item.email === username && item.password === password){
+                           console.log("GOING TO THE DOCTOR");
+                           window.location = "http://localhost:8080/doctor/" + item.id;
+                       }
+                    });
+                });
+
+
+                $.getJSON('http://localhost:8080/pacient/', function (data) {
+                    $.each(data, function (index, item) {
+                        if(item.email === username && item.password === password){
+                            console.log("GOING TO THE PACIENT");
+                            window.location = "http://localhost:8080/pacient/" + item.id;
+                        }
+                    });
+                });
+
+                $.getJSON('http://localhost:8080/administrator/', function (data) {
+                    $.each(data, function (index, item) {
+                        if(item.email === username && item.password === password){
+                            console.log("GOING TO THE ADMINISTRATOR");
+                            window.location = "http://localhost:8080/administrator/" + item.id;
+                        }
+                    });
+                });
+
+                $.getJSON('http://localhost:8080/asistent/', function (data) {
+                    $.each(data, function (index, item) {
+                        if(item.email === username && item.password === password){
+                            console.log("GOING TO THE ASISTENT");
+                            window.location = "http://localhost:8080/asistent/" + item.id;
+                        }
+                    });
+                });
+
+            });
+
+        });
+
+    </script>
 
 
 

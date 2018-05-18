@@ -18,23 +18,7 @@ function getPassword(input){
     return input.split("password=")[1];
 }
 
-function functie()
-{
-    var qwerty = $('#username').val();
-    var qwerty2 = $('#password').val();
 
-    console.log("USERNAME: " + qwerty);
-    console.log("PASSWORD: " + qwerty2);
-
-    if(qwerty === "doctor" && qwerty2 === "doctor")
-    {
-        console.log("aici");
-        return "http://localhost:8080/doctor";
-    }
-
-
-
-}
 
 
 $(document).ready(function ()
@@ -59,10 +43,9 @@ $(document).ready(function ()
 
         if(qwerty === "doctor" && qwerty2 === "doctor")
         {
-            console.log("GOING TO THE DOCTOR");
-            //window.location.replace("http://localhost:8080/doctor");
-            //$(location).attr('href',"http://localhost:8080/doctor");
-            window.location = "http://localhost:8080/doctor";
+            console.log("GOING TO THE DOCTOR DENTIST");
+            window.location = "http://localhost:8080/doctor?id=1";
+            console.log("aici");
         }
 
         if(qwerty === "pacient" && qwerty2 === "pacient")

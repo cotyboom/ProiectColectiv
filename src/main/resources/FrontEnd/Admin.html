@@ -47,7 +47,8 @@
         $.getJSON("http://localhost:8080/doctor/", function(result) {
             var options = $("#dropDownDoctor");
             $.each( result, function(key, val) {
-                var row = '<option id=D.' + val.id + ' >'+ val.nume + '<option />';
+                var row = '<option id=D.' + val.id + ' >'+ val.nume + '</option >';
+                console.log(row);
                 options.append(row);
             });
         });
@@ -57,13 +58,14 @@
          $.getJSON("http://localhost:8080/pacient/", function(result) {
              var options = $("#dropDownPacient");
              $.each( result, function(key, val) {
-                 var row = '<option id=P.' + val.id + ' >'+ val.nume + " " + val.prenume + '<option />';
+                 var row = '<option id=P.' + val.id + ' >'+ val.nume + " " + val.prenume + '</option>';
                  options.append(row);
              });
          });
      }
     function getProgramariForSelectedDoctor() {
-        var id = $("#dropDownPacient").children(":selected").attr("id").split(".")[1];
+        var id = $("#dropDownDoctor").children(":selected").attr("id").split(".")[1];
+        console.log(id);
         var url = 'http://localhost:8080/programare/getProgramareByIdDoctor/' + id;
         $('#programari tbody').empty();
         $.getJSON(url, function (data) {
@@ -71,6 +73,12 @@
                 var row = '<tr>';
                 row = row + '<td class="ora" >' + item.ora + '</td>';
                 row = row + '<td class="data" >' + item.date + '</td>';
+                if(item.stare === 0){
+                    stare = "confirmata";
+                } else {
+                    stare = "neconfirmata";
+                }
+                row = row + '<td class="stare" >' + stare + '</td>';
                 var urlP = 'http://localhost:8080/pacient/getById/' + item.idPacient;
                 $.getJSON(urlP, function (data) {
                         row= row + '<td class="pacient" >' + data.nume + " " + data.prenume + '</td>';
@@ -378,6 +386,7 @@
             <tr>
                 <th>Ora</th>
                 <th>Data</th>
+                <th>Status</th>
                 <th>Pacient</th>
             </tr>
             </thead>

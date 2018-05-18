@@ -26,19 +26,19 @@ public class Programare {
     private String date;
 
     @Column
-    private String cabinet;
+    private String idDoctor;
 
     @Column
-    private String idDoctor;
+    private String status;
 
     @Column
     private String idPacient;
 
-    public Programare(String ora, String date, String cabinet, String idDoctor, String idPacient)
+    public Programare(String ora, String date,  String idDoctor, String idPacient, String status)
     {
         this.ora = ora;
         this.date=date;
-        this.cabinet=cabinet;
+        this.status="0";
         this.idDoctor = idDoctor;
         this.idPacient =idPacient;
     }

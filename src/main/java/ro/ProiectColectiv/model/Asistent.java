@@ -26,15 +26,12 @@ public class Asistent extends Human {
     @Column
     private String password;
 
-    @OneToMany(targetEntity = Programare.class, cascade = CascadeType.ALL)
-    private List<Programare> listProgramare;
 
-    public Asistent(String nume, String prenume, String CNP, String telefon, String adresa, String email, Rol rol, String username, String password, List<Programare> listProgramare) {
+    public Asistent(String nume, String prenume, String CNP, String telefon, String adresa, String email, Rol rol, String username, String password) {
         super(nume, prenume, CNP, telefon, adresa, email);
         this.rol = Rol.ASISTENT;
         this.username = username;
         this.password = password;
-        this.listProgramare = listProgramare;
     }
 }
 

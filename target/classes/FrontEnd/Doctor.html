@@ -5,8 +5,12 @@
     <title>Doctor</title>
     <link rel="stylesheet" type="text/css" href="/FrontEnd/personalizedStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script language="JavaScript" type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
+
+        id = window.location.pathname.split("/")[2];
+
         function tabel(id_element) {
             var x = document.getElementById(id_element);
             if (x.style.display != "none") {
@@ -17,29 +21,33 @@
             }
         }
 
-        function hide(id_element)
-        {
+        function hide(id_element) {
             var x = document.getElementById(id_element);
             document.getElementsByTagName()
             x.style.display = "none";
         }
 
-        function hideAll()
-        {
+        function hideAll() {
             var elements = document.getElementsByClassName("groupBox");
-            for(var i=0; i<elements.length; i++) {
+            for (var i = 0; i < elements.length; i++) {
                 elements[i].style.display = "none";
             }
         }
 
-        function show(id_element)
-        {
+        function show(id_element) {
             var x = document.getElementById(id_element);
-            x.style.display ="block";
+            x.style.display = "block";
+        }
+
+        function showDetaliiDoctor() {
+            var url = 'http://localhost:8080/doctor/getById/' + id;
+            $.getJSON(url, function (data) {
+                var detalii = "Nume: " +  data.nume + " " + data.prenume ;
+                $('p').text(detalii);
+            });
         }
 
         function getProgramariForSelectedDoctor() {
-            var id = 1;
             var url = 'http://localhost:8080/programare/getProgramareByIdDoctor/' + id;
             $('#programari tbody').empty();
             $.getJSON(url, function (data) {
@@ -47,9 +55,15 @@
                     var row = '<tr>';
                     row = row + '<td class="ora" >' + item.ora + '</td>';
                     row = row + '<td class="data" >' + item.date + '</td>';
+                    if (item.stare === 0) {
+                        stare = "confirmata";
+                    } else {
+                        stare = "neconfirmata";
+                    }
+                    row = row + '<td class="stare" >' + stare + '</td>';
                     var urlP = 'http://localhost:8080/pacient/getById/' + item.idPacient;
                     $.getJSON(urlP, function (data) {
-                        row= row + '<td class="pacient" >' + data.nume + " " + data.prenume + '</td>';
+                        row = row + '<td class="pacient" >' + data.nume + " " + data.prenume + '</td>';
                         row = row + '</tr>';
                         return $('#programari tbody').append(row);
                     });
@@ -57,11 +71,11 @@
             });
         }
 
-        function dropDownPacientForDoctor(){
-            $.getJSON("http://localhost:8080/pacient/", function(result) {
+        function dropDownPacientForDoctor() {
+            $.getJSON("http://localhost:8080/pacient/", function (result) {
                 var options = $("#dropDownPacient");
-                $.each( result, function(key, val) {
-                    var row = '<option id=P.' + val.id + ' >'+ val.nume + " " + val.prenume + '<option />';
+                $.each(result, function (key, val) {
+                    var row = '<option id=P.' + val.id + ' >' + val.nume + " " + val.prenume + '<option />';
                     options.append(row);
                 });
             });
@@ -95,11 +109,12 @@
         }
 
         $(document).ready(
-            function (){
+            function () {
+                console.log(id);
                 dropDownPacientForDoctor()
+                showDetaliiDoctor();
 
-                $(document).on('click', '#SalveazaF', function ()
-                {
+                $(document).on('click', '#SalveazaF', function () {
 
                     var dataF = $('#data').val();
                     var cnp = $('#cnpP').val();
@@ -109,10 +124,10 @@
                     clearFieldsFisa();
                     var idP;
                     console.log("CNP" + cnp);
-                    $.getJSON("http://localhost:8080/pacient/", function(result) {
+                    $.getJSON("http://localhost:8080/pacient/", function (result) {
                         $.each(result, function (index, item) {
-                            if(item.cnp === cnp){
-                                var jsonCreate = '{"idPacient":"' + item.id + '","diagnostic":"' + diagnostic + '","tratament":"' + tratament + '","observatii":"' +  observatii + '","data":"' + dataF+ '"}';
+                            if (item.cnp === cnp) {
+                                var jsonCreate = '{"idPacient":"' + item.id + '","diagnostic":"' + diagnostic + '","tratament":"' + tratament + '","observatii":"' + observatii + '","data":"' + dataF + '"}';
                                 console.log(jsonCreate);
                                 $.ajax({
                                     headers: {
@@ -133,9 +148,8 @@
 
                 });
 
-                $(document).on('click', '#SalveazaPacient', function ()
-                {
-                    var idD = 1;
+                $(document).on('click', '#SalveazaPacient', function () {
+                    var idD = id;
                     var nume = $('#nume').val();
                     var prenume = $('#prenume').val();
                     var cnp = $('#cnp').val();
@@ -149,7 +163,7 @@
                     var boli = $('#boli').val();
                     clearFieldsFisa();
 
-                    var jsonCreate = '{"nume":"' + nume + '","idDoctor":"' + idD +'","prenume":"' + prenume + '","cnp":"' + cnp + '","telefon":"' + telefon + '","adresa":"' + adresa + '","email":"' + email + '","rol":"' + 'EMPTY' + '","greutate":"' + greutate + '","inaltime":"' + inaltime + '","varsta":"' + varsta + '","password":"'+ parola +'","boli":"'+boli+ '"}';
+                    var jsonCreate = '{"nume":"' + nume + '","idDoctor":"' + idD + '","prenume":"' + prenume + '","cnp":"' + cnp + '","telefon":"' + telefon + '","adresa":"' + adresa + '","email":"' + email + '","rol":"' + 'EMPTY' + '","greutate":"' + greutate + '","inaltime":"' + inaltime + '","varsta":"' + varsta + '","password":"' + parola + '","boli":"' + boli + '"}';
 
                     console.log(jsonCreate);
                     $.ajax({
@@ -171,143 +185,152 @@
     </script>
 </head>
 <div class="container">
-<fieldset style="background-color: white; border: none; height: 1100px">
-    <img src="/FrontEnd/logo.png" alt="Logo" width="130" height="90" style="display:inline">
-    <h6 class="h5" >
-        <img src="/FrontEnd/telefon.png" alt="Logo" width="15" height="15" style="display:inline;margin-left: 20px"> (0264) 315178<br>
-    </h6>
-    <h6 class="iconmail" >
-        <img src="/FrontEnd/mail.png" alt="Logo" width="15" height="15" style="display:inline;margin-right: 5px">clinica5D@gmail.com
-    </h6>
+    <fieldset style="background-color: white; border: none; height: 1100px">
+        <img src="/FrontEnd/logo.png" alt="Logo" width="130" height="90" style="display:inline">
+        <h6 class="h5">
+            <img src="/FrontEnd/telefon.png" alt="Logo" width="15" height="15" style="display:inline;margin-left: 20px">
+            (0264) 315178<br>
+        </h6>
+        <h6 class="iconmail">
+            <img src="/FrontEnd/mail.png" alt="Logo" width="15" height="15" style="display:inline;margin-right: 5px">clinica5D@gmail.com
+        </h6>
 
 
-    <ul class="main-navigation" >
-        <li><a href="#" onclick="hideAll();  show('paragraf')"><b>Acasa</b></a></li>
-        <li><a href="#" onclick="hideAll(); getProgramariForSelectedDoctor();  show('vizProgramari'); tabel('programari')"><b>Programari</b></a></li>
-        <li><a href="#"><b>Fisa medicala</b></a>
-            <ul>
-                <li ><a href="#" onclick="hideAll(); show('vizPacient'); "><b>Vizualizare</b></a></li>
-                <li><a href="#" onclick="hideAll(); show('creareFisa');"><b>Creare</b></a></li>
-            </ul>
-        </li>
-        <li><a href="#" onClick="hideAll(); show('crearePacient')"><b>Adaugare pacient</b></a>
-        <li style="float: right"><a href="/login"><b>Logout</b></a></li>
-    </ul>
-    <div style="margin-top: 40px">
+        <ul class="main-navigation">
+            <li><a href="#" onclick="hideAll();  show('paragraf') ; showDetaliiDoctor()"><b>Acasa</b></a></li>
+            <li><a href="#"
+                   onclick="hideAll(); getProgramariForSelectedDoctor();  show('vizProgramari'); tabel('programari')"><b>Programari</b></a>
+            </li>
+            <li><a href="#"><b>Fisa medicala</b></a>
+                <ul>
+                    <li><a href="#" onclick="hideAll(); show('vizPacient'); "><b>Vizualizare</b></a></li>
+                    <li><a href="#" onclick="hideAll(); show('creareFisa');"><b>Creare</b></a></li>
+                </ul>
+            </li>
+            <li><a href="#" onClick="hideAll(); show('crearePacient')"><b>Adaugare pacient</b></a>
+            <li style="float: right"><a href="/login"><b>Logout</b></a></li>
+        </ul>
+        <div style="margin-top: 40px">
 
-        <fieldset class="groupBox" id="vizPacient" style="display: none; border: none;">
-            <p style="display: inline;"> Pacient </p>
-            <select name="pacienti" id="dropDownPacient" style="display: inline; margin-left: 20px;" onchange="show('vizFisaMedicala')">
-            </select>
-            <button class="cupid-green" type="button" onclick="getIstoricForSelectedPacient();  show('fiseMedicale'); tabel('tabelFisaMedicala')  ">Cauta</button>
+            <fieldset class="groupBox" id="vizPacient" style="display: none; border: none;">
+                <p style="display: inline;"> Pacient </p>
+                <select name="pacienti" id="dropDownPacient" style="display: inline; margin-left: 20px;"
+                        onchange="show('vizFisaMedicala')">
+                </select>
+                <button class="cupid-green" type="button"
+                        onclick="getIstoricForSelectedPacient();  show('fiseMedicale'); tabel('tabelFisaMedicala')  ">
+                    Cauta
+                </button>
 
-        </fieldset>
+            </fieldset>
 
-        <fieldset class="groupBox" id="creareFisa" style="border-style: groove; display: none" >
-            <legend>Creare fisa medicala</legend>
-            <form>
-                - Data intocmirii fisei medicale:
-                <input type="text" id="data"><br><br>
-                - Nume pacient:
-                <input type="text" id="numeP"><br><br>
-                - Prenume pacient:
-                <input type="text" id="prenumeP"><br><br>
-                - CNP pacient:
-                <input type="text" id="cnpP"><br><br>
-                - Diagnistic :
-                <input type="text" id="diagnostic"><br><br>
-                - Tratament :
-                <input type="text" id="tratament"><br><br>
-                - Observatii :
-                <input type="text" id="observatii"><br><br>
-            </form>
-            <button id="SalveazaF" class="cupid-green" type="button" >Salveaza</button>
-        </fieldset>
+            <fieldset class="groupBox" id="creareFisa" style="border-style: groove; display: none">
+                <legend>Creare fisa medicala</legend>
+                <form>
+                    - Data intocmirii fisei medicale:
+                    <input type="text" id="data"><br><br>
+                    - Nume pacient:
+                    <input type="text" id="numeP"><br><br>
+                    - Prenume pacient:
+                    <input type="text" id="prenumeP"><br><br>
+                    - CNP pacient:
+                    <input type="text" id="cnpP"><br><br>
+                    - Diagnistic :
+                    <input type="text" id="diagnostic"><br><br>
+                    - Tratament :
+                    <input type="text" id="tratament"><br><br>
+                    - Observatii :
+                    <input type="text" id="observatii"><br><br>
+                </form>
+                <button id="SalveazaF" class="cupid-green" type="button">Salveaza</button>
+            </fieldset>
 
-        <fieldset class="groupBox" id="paragraf">
-            <p3> Doctor: Nume si prenume doctor</p3>
-        </fieldset>
+            <fieldset class="groupBox" id="paragraf">
+                <p id="detaliiDoctor>">Whatever</p>
+            </fieldset>
 
-        <p3 class="groupBox" id="mesaj" style="margin-bottom: 10px; display: none">
-            Doresti sa adaugi alt pacient? Apasa din nou pe butonul "Adaugare pacient".
-        </p3>
+            <p3 class="groupBox" id="mesaj" style="margin-bottom: 10px; display: none">
+                Doresti sa adaugi alt pacient? Apasa din nou pe butonul "Adaugare pacient".
+            </p3>
 
-        <fieldset class="groupBox" id="crearePacient" style="border-style: groove; display: none">
-            <h3>Adaugare pacient</h3><br>
-            <form id = "crearePacientt">
-                <label>
-                    <span>Nume:</span>
-                    <input type="text" id="nume">
+            <fieldset class="groupBox" id="crearePacient" style="border-style: groove; display: none">
+                <h3>Adaugare pacient</h3><br>
+                <form id="crearePacientt">
+                    <label>
+                        <span>Nume:</span>
+                        <input type="text" id="nume">
 
-                    <span></span>Prenume:
-                    <input type="text" id="prenume">
-                </label>
-                <label>
-                    <span>CNP:</span>
-                    <input type="text" id="cnp">
+                        <span></span>Prenume:
+                        <input type="text" id="prenume">
+                    </label>
+                    <label>
+                        <span>CNP:</span>
+                        <input type="text" id="cnp">
 
-                    <span></span>Telefon:
-                    <input type="text" id="telefon">
-                </label>
-                <label>
-                    <span>Email:</span>
-                    <input type="text" id="email">
+                        <span></span>Telefon:
+                        <input type="text" id="telefon">
+                    </label>
+                    <label>
+                        <span>Email:</span>
+                        <input type="text" id="email">
 
-                    <span></span>Adresa:
-                    <input type="text" id="adresa">
-                </label>
-                <label>
-                    <span>Varsta:</span>
-                    <input type="text" id="varsta">
+                        <span></span>Adresa:
+                        <input type="text" id="adresa">
+                    </label>
+                    <label>
+                        <span>Varsta:</span>
+                        <input type="text" id="varsta">
 
-                    <span></span>Inaltime:
-                    <input type="text" id="inaltime">
-                </label>
-                <label>
-                    <span>Greutate:</span>
-                    <input type="text" id="greutate">
-                </label>
-                <label>
-                    <span>Boli:</span>
-                    <input type="text" id="boli">
-                </label>
-                <label>
-                    <span>Parola:</span>
-                    <input type="text" id="parola">
-                </label><br><br><br>
-            </form>
-            <button class="cupid-green" id = "SalveazaPacient" type="button" onclick=" show('mesaj')">Salveaza</button>
-        </fieldset>
+                        <span></span>Inaltime:
+                        <input type="text" id="inaltime">
+                    </label>
+                    <label>
+                        <span>Greutate:</span>
+                        <input type="text" id="greutate">
+                    </label>
+                    <label>
+                        <span>Boli:</span>
+                        <input type="text" id="boli">
+                    </label>
+                    <label>
+                        <span>Parola:</span>
+                        <input type="text" id="parola">
+                    </label><br><br><br>
+                </form>
+                <button class="cupid-green" id="SalveazaPacient" type="button" onclick=" show('mesaj')">Salveaza
+                </button>
+            </fieldset>
 
-        <fieldset  class="groupBox" id="vizProgramari" style="display: none; border: none;">
-            <table id='programari' class='table'>
-                <thead>
-                <tr>
-                    <th>Ora</th>
-                    <th>Data</th>
-                    <th>Pacient</th>
-                </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </fieldset>
+            <fieldset class="groupBox" id="vizProgramari" style="display: none; border: none;">
+                <table id='programari' class='table'>
+                    <thead>
+                    <tr>
+                        <th>Ora</th>
+                        <th>Data</th>
+                        <th>Status</th>
+                        <th>Pacient</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </fieldset>
 
-        <fieldset  class="groupBox" id="fiseMedicale" style="display: none; border: none;">
-            <table id='tabelFisaMedicala' class='table'>
-                <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Diagnostic</th>
-                    <th>Tratament</th>
-                    <th>Observatii</th>
-                </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </fieldset>
+            <fieldset class="groupBox" id="fiseMedicale" style="display: none; border: none;">
+                <table id='tabelFisaMedicala' class='table'>
+                    <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Diagnostic</th>
+                        <th>Tratament</th>
+                        <th>Observatii</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </fieldset>
 
 
-    </div>
-</fieldset>
+        </div>
+    </fieldset>
 </div>
 </html>

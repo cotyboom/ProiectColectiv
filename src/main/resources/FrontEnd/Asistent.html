@@ -5,6 +5,130 @@
     <title>Asistent</title>
     <link rel="stylesheet" type="text/css" href="/FrontEnd/personalizedStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script language="JavaScript" type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+
+        id = window.location.pathname.split("/")[2];
+
+        function tabel(id_element) {
+            var x = document.getElementById(id_element);
+            if (x.style.display != "none") {
+                hide(id_element);
+            } else {
+                x.style.display = "block";
+                x.style.display = "inline";
+            }
+        }
+
+        function hide(id_element) {
+            var x = document.getElementById(id_element);
+            document.getElementsByTagName()
+            x.style.display = "none";
+        }
+
+        function hideAll() {
+            var elements = document.getElementsByClassName("groupBox");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.display = "none";
+            }
+        }
+
+        function show(id_element) {
+            var x = document.getElementById(id_element);
+            x.style.display = "block";
+        }
+
+        function getPacienti() {
+            $('#totiPacientii tbody').empty();
+            $.getJSON('http://localhost:8080/pacient/', function (data) {
+                $.each(data, function (index, item) {
+                    var row = '<tr>';
+                    console.log("here");
+                    row = row + '<td class="dataid" >' + item.id + '</td>';
+                    row = row + '<td class="datanume" >' + item.nume + '</td>';
+                    row = row + '<td class="dataprenume" >' + item.prenume + '</td>';
+                    row = row + '<td class="datacnp" >' + item.cnp + '</td>';
+                    row = row + '<td class="datatelefon" >' + item.telefon + '</td>';
+                    row = row + '<td class="dataadresa" >' + item.adresa + '</td>';
+                    row = row + '<td class="dataemail" >' + item.email + '</td>';
+
+                    // row = row + '<td><button class="btn edit-item editMenu_item"><span class="glyphicon active glyphicon-pencil" aria-hidden="true"></span></button></td>';
+                    row = row + '<td><button class="btn btn-danger remove-item deleteMenu_item">X</button></td>';
+                    row = row + '</tr>';
+                    $('#totiPacientii tbody:last-child').append(row);
+                });
+            });
+        }
+
+        function getProgramari() {
+            var url = 'http://localhost:8080/programare/' ;
+            $('#programari tbody').empty();
+            $.getJSON(url, function (data) {
+                $.each(data, function (index, item) {
+                    var row = '<tr>';
+                    row = row + '<td class="ora" >' + item.ora + '</td>';
+                    row = row + '<td class="data" >' + item.date + '</td>';
+                    if (item.stare === 0) {
+                        stare = "<div><input type=\"radio\" name=\"option1\" id=\"optionDa\" checked onclick=\"ifCheckedDa()\"> Da "+
+                            "<input type=\"radio\" name=\"option1\" id=\"optionNu\" onclick=\"ifCheckedNu()\" > Nu </div>"
+                    } else {
+                        stare = "<div><input type=\"radio\" name=\"option1\" id=\"optionDa\"  onclick=\"ifCheckedDa()\"> Da "+
+                            "<input type=\"radio\" name=\"option1\" id=\"optionNu\" checked onclick=\"ifCheckedNu()\"> Nu </div>"
+                    }
+                    row = row + '<td class="stare" >' + stare + '</td>';
+                    var urlP = 'http://localhost:8080/pacient/getById/' + item.idPacient;
+                    $.getJSON(urlP, function (data) {
+                        row = row + '<td class="pacient" >' + data.nume + " " + data.prenume + '</td>';
+                        row = row + '</tr>';
+                        return $('#programari tbody').append(row);
+                    });
+                });
+            });
+        }
+
+        function ifCheckedDa() {
+
+        }
+
+        function ifCheckedNu() {
+
+        }
+
+        function getProgramariForPacient() {
+            var url = 'http://localhost:8080/programare/getProgramareByIdPacient/' + id;
+            $('#programari tbody').empty();
+            $.getJSON(url, function (data) {
+                $.each(data, function (index, item) {
+                    var row = '<tr>';
+                    row = row + '<td class="ora" >' + item.ora + '</td>';
+                    row = row + '<td class="data" >' + item.date + '</td>';
+                    if (item.stare === 0) {
+                        stare = "confirmata";
+                    } else {
+                        stare = "neconfirmata";
+                    }
+                    row = row + '<td class="stare" >' + stare + '</td>';
+                    $('#programari tbody').append(row);
+                });
+            });
+        }
+
+        function showDetaliiAsistent() {
+            var url = 'http://localhost:8080/asistent/getById/' + id;
+            $.getJSON(url, function (data) {
+                var detalii = "Nume: " +  data.nume + " " + data.prenume ;
+                $('p').text(detalii);
+            });
+        }
+
+        $(document).ready(
+            function () {
+                showDetaliiAsistent()
+                getPacienti();
+            });
+
+    </script>
 </head>
 <div class="container">
 <fieldset style="background-color: white; border: none; height: 1100px">
@@ -18,7 +142,7 @@
 
     <ul class="main-navigation" >
         <li><a href="#" onclick="hideAll(); show('paragraf')"><b>Acasa</b></a></li>
-        <li><a href="#" onclick="hideAll(); show('vizPacienti'); tabel('tabelPacienti');"><b>Programari</b></a></li>
+        <li><a href="#" onclick="hideAll(); getProgramari();  show('vizProgramari'); tabel('programari')""><b>Programari</b></a></li>
         <li><a href="#"><b>Pacienti</b></a>
             <ul>
                 <li ><a href="#"onclick="hideAll(); show('totiPacientii'); tabel('tabelTotiPacientii');"><b>Vizualizare</b></a></li>
@@ -31,104 +155,40 @@
 
     <div style="margin-top: 50px">
 
-        <fieldset class="groupBox" id="vizPacienti" style="display: none; border: none;">
-            <h3>Programari</h3><br>
-            <table id="tabelPacienti" style="display: none;">
-                <tr>
-                    <th id="textData">Data</th>
-                    <th>Ora</th>
-                    <th>Pacient</th>
-                    <th>Confirmare</th>
-                    <th>Modificare</th>
-                </tr>
-                <tr>
-                    <td>21.09.2018</td>
-                    <td>10:20</td>
-                    <td>Kolumban</td>
-                    <td>
-                        <input type="radio" name="option1" id="optionDa" onclick="ifChecked()"> Da
-                        <input type="radio" name="option1" id="optionNu" onclick="ifChecked()"> Nu
-                    </td>
-                    <td><img src="/FrontEnd/edit.png" class="button_img" alt="Logo" width="25" height="25" onclick="show('editProgramare'); tabel('editareProgramare');"></td>
-                </tr>
-                <tr>
-                    <td>20.05.2018</td>
-                    <td>12:45</td>
-                    <td>Hadar</td>
-                    <td>
-                        <input type="radio" name="option1" id="optionDa2" onclick="ifChecked()"> Da
-                        <input type="radio" name="option1" id="optionNu2" onclick="ifChecked()"> Nu
-                    </td>
-                    <td><img src="/FrontEnd/edit.png" class="button_img" alt="Logo" width="25" height="25" onclick="show('totiPacientii'); tabel('tabelTotiPacientii');"></td>
-                </tr>
-            </table>
-        </fieldset>
-
-        <fieldset class="groupBox" id="editProgramare" style="display: none; border: none;">
-            Editare programare
-            <form id="editareProgramare">
-                <label>
-                    <span>Data:</span>
-                    <input type="date" name="data">
-                </label>
-                <label>
-                    <span>Ora:</span>
-                    <input type="time" name="ora">
-                </label>
-                <br><br>
-            </form>
-            <button class="cupid-green" type="button" onclick="alert('Programare editata cu succes!'); hideElem('editProgramare'); show('Programari'); tabel('tabelProgramari')">Salveaza</button>
-        </fieldset>
-
-        <fieldset class="groupBox" id="totiPacientii" style="display: none; border: none;">
-            <h3>Vizualizare pacienti</h3><br>
+        <fieldset  class="groupBox" id="totiPacientii" style="display: none; border: none;">
             <table id="tabelTotiPacientii" style="display: none;">
+                <thead>
                 <tr>
-                    <th>Pacient</th>
-                    <th>Modificare</th>
+                    <th>Id</th>
+                    <th>Nume</th>
+                    <th>Prenume</th>
+                    <th>CNP</th>
+                    <th>Telefon</th>
+                    <th>Adresa</th>
+                    <th>Email</th>
                 </tr>
-                <tr>
-                    <td>Gutt Robert</td>
-                    <td><img src="/FrontEnd/edit.png" class="button_img" alt="Logo" width="25" height="25" onclick="show('editPacient'); tabel('editarePacient');"></td>
-                </tr>
-                <tr>
-                    <td>Breaz Bobo</td>
-                    <td><img src="/FrontEnd/edit.png" class="button_img" alt="Logo" width="25" height="25" onclick="tabel('tabelProg')"></td>
-                </tr>
-                    <td>Mike Tyson</td>
-                    <td><img src="/FrontEnd/edit.png" class="button_img" alt="Logo" width="25" height="25" onclick="tabel('tabelProg')"></td>
-                </tr>
+                </thead>
+                <tbody></tbody>
             </table>
         </fieldset>
+
+        <fieldset class="groupBox" id="vizProgramari" style="display: none; border: none;">
+            <table id='programari' class='table'>
+                <thead>
+                <tr>
+                    <th>Ora</th>
+                    <th>Data</th>
+                    <th>Confirmat</th>
+                    <th>Pacient</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </fieldset>
+
 
         <fieldset class="groupBox" id="paragraf">
-            <p3> Asistent: Nume si prenume asistent</p3>
-        </fieldset>
-
-        <fieldset class="groupBox" id="vizPacient" style="display: none; border: none;">
-            <p style="display: inline;"> Pacient </p>
-            <select name="pacienti" style="display: inline; margin-left: 20px;" onchange="show('vizFisaMedicala')">
-                <option value=""> </option>
-                <option>Kolumban Andrei</option>
-                <option>Hadar Alexandru</option>
-                <option>Nelson Mondialu</option>
-            </select>
-
-            <table id="vizFisaMedicala" style="display: none">
-                <tr>
-                    <th>Data</th>
-                    <th>Vizualizare fisa medicala</th>
-                </tr>
-                <tr>
-                    <td>21.09.2018</td>
-                    <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
-                </tr>
-                <tr>
-                    <td>20.05.2018</td>
-                    <td><img src="/FrontEnd/lupa.png" class="button_img" alt="Logo" width="45" height="45" onclick="tabel('tabelProg')"></td>
-                </tr>
-            </table>
-
+            <p> </p>
         </fieldset>
 
         <fieldset class="groupBox" id="crearePacient" style="border-style: groove; display: none">
@@ -179,67 +239,6 @@
             <button class="cupid-green" type="button" onclick="alert('Pacient salvat!'); ">Salveaza</button>
         </fieldset>
 
-        <script>
-            function tabel(id_element) {
-                var x = document.getElementById(id_element);
-                if (x.style.display != "none") {
-                    hide(id_element);
-                } else {
-                    x.style.display = "block";
-                    x.style.display = "inline";
-                }
-            }
-
-            function hide(id_element)
-            {
-                var x = document.getElementById(id_element);
-                document.getElementsByTagName();
-                x.style.display = "none";
-            }
-
-            function hideElem(id_element){
-                var elem = document.getElementById(id_element);
-                elem.style.display = "none";
-            }
-
-            function hideAll()
-            {
-                var elements = document.getElementsByClassName("groupBox");
-                for(var i=0; i<elements.length; i++) {
-                    elements[i].style.display = "none";
-                }
-            }
-
-            function show(id_element)
-            {
-                var x = document.getElementById(id_element);
-                x.style.display ="block";
-            }
-
-            function ifChecked() {
-
-                if (document.getElementById("optionDa").checked == true) {
-                    alert("Programare acceptata!");
-                    document.getElementsByClassName("td").Color = Green;
-                }
-                else if (document.getElementById("optionNu").checked == true) {
-                    alert("Programare respinsa!");
-                    document.getElementsByClassName("td").Color = Red;
-                }
-                else if (document.getElementById("optionDa2").checked == true) {
-                    alert("Programare acceptata!");
-                    document.getElementsByClassName("td").Color = Red;
-                }
-                else if (document.getElementById("optionNu2").checked == true) {
-                    alert("Programare respinsa!");
-                    document.getElementsByClassName("td").Color = Red;
-                }
-                else {
-                    // DO NOTHING
-                }
-            }
-
-        </script>
 
     </div>
 </fieldset>
